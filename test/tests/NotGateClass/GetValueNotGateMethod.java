@@ -1,5 +1,7 @@
 package NotGateClass;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import digitalsimulator.NotGate;
@@ -10,16 +12,14 @@ public class GetValueNotGateMethod {
 	public void getterWithTrue() throws Exception {
 		NotGate a = new NotGate();
 		a.setValue(true);
-		// TODO uncomment when method implemented
-		// assertEquals(true, a.getValueNotGate());
+		assertEquals(true, a.getValueNotGate());
 	}
 
 	@Test
 	public void getterWithFalse() throws Exception {
 		NotGate a = new NotGate();
 		a.setValue(false);
-		// TODO uncomment when method implemented
-		// assertEquals(false, a.getValueNotGate());
+		assertEquals(false, a.getValueNotGate());
 	}
 
 }
