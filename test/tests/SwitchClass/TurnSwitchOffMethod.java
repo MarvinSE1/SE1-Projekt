@@ -1,14 +1,27 @@
 package SwitchClass;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import digitalsimulator.Switch;
 
 public class TurnSwitchOffMethod {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void deactivateActivatedSwitch() throws Exception {
+		Switch s = new Switch();
+		s.turnSwitchOn();
+		s.turnSwitchOff();
+		assertEquals(false, s.getValueSwitch());
+	}
+
+	@Test
+	public void deactivateDeactivatedSwitch() throws Exception {
+		Switch s = new Switch();
+		s.turnSwitchOff();
+		s.turnSwitchOff();
+		assertEquals(false, s.getValueSwitch());
 	}
 
 }

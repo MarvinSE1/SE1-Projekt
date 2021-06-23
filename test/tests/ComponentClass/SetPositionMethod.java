@@ -117,7 +117,7 @@ public class SetPositionMethod {
 		// TODO uncomment when method implemented
 //		Component c = new Component();
 //		c.addToCanvas();
-//		c.setPosition(getWidth() + 1, getHeight());
+//		c.setPosition(getWidth() + 1, (getHeight() * -1));
 	}
 
 	@Test // (expected = InvalidXCoordinate.class)
@@ -126,7 +126,7 @@ public class SetPositionMethod {
 		// TODO uncomment when method implemented
 //		Component c = new Component();
 //		c.addToCanvas();
-//		c.setPosition(-1, getHeight());
+//		c.setPosition(-1, (getHeight() * -1));
 	}
 
 }
