@@ -1,37 +1,25 @@
-/**
- * 
- */
 package GateClass;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Test;
 
-/**
- * @author Linus
- *
- */
+import digitalsimulator.Gate;
+
 public class GateOpMethod {
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
+	@Test
+	public void getterWithTrue() throws Exception {
+		Gate g = new Gate();
+		g.setValue(true);
+		assertEquals(true, g.gateOP());
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void getterWithFalse() throws Exception {
+		Gate g = new Gate();
+		g.setValue(false);
+		assertEquals(false, g.gateOP());
 	}
 
 }

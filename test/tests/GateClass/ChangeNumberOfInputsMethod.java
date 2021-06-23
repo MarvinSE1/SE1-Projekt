@@ -12,7 +12,7 @@ public class ChangeNumberOfInputsMethod {
 	public void validInputNumber() throws Exception {
 		Gate g = new Gate();
 		g.changeNumberOfInputs(1);
-		assertEquals(1, g.getInputValue());
+		assertEquals(1, g.getInputAmount());
 	}
 
 	@Test // (expected = InvalidInputNumberException.class)

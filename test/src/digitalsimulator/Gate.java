@@ -6,9 +6,14 @@ public class Gate extends Component {
 		// TODO Auto-generated method stub
 	}
 
-	public int getInputValue() {
+	public int getInputAmount() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public boolean gateOP() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
