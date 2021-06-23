@@ -1,6 +1,8 @@
 package digitalsimulator;
 
 import javax.swing.*;
+
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -49,9 +51,16 @@ public class Component extends JComponent {
 		
 		@Override
 		public void mouseDragged(MouseEvent e) {
-			if(moved ||(e.getX()>=posX && e.getX()<=(posX+sizeX) && e.getY()>=posY && e.getY()<=(posY+sizeY))) {
-				setPosition(e.getX(),e.getY());
-				moved = true;
+			if(SwingUtilities.isLeftMouseButton(e) && e.getClickCount() == 0) {
+				Component o = (Component) e.getSource();
+				int eventx = e.getX();
+				int eventy = e.getY();
+				if (Math.abs(eventx - posX) > 5 || Math.abs(eventy - posY) > 5) {
+					Rectangle r = o.getBounds();
+					int x = (int) r.getX();
+					int y = (int) r.getY();
+					o.setBounds(x + (eventx - posX), y + (eventy - posY), sizeX,	sizeY);
+				}
 			}
 		}
 		@Override
@@ -89,6 +98,8 @@ public class Component extends JComponent {
 		test.setSize(500,500);
 		
 		Component t = new Component();
+		Component t2 = new Component();
 		test.add(t);
+		test.add(t2);
 	}
 }

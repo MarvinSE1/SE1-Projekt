@@ -11,20 +11,20 @@ public class test {
 		
 		JFrame f = new JFrame("Test");
 		JPanel inneresPanel=new JPanel();
-		JPanel auﬂenPanel=new JPanel();
+		JPanel au√üenPanel=new JPanel();
 		JPanel rechts= new JPanel();
 		JPanel links= new JPanel();
 		JPanel unten= new JPanel();
 		
 		
-		JLabel text=new JLabel("option ausw‰hlen");
+		JLabel text=new JLabel("option ausw√§hlen");
 		
 		
 		GridLayout layout=new GridLayout(3, 1);
 		BorderLayout border=new BorderLayout();
 		inneresPanel.setLayout(layout);
-		auﬂenPanel.setLayout(border);
-		f.add(auﬂenPanel);
+		au√üenPanel.setLayout(border);
+		f.add(au√üenPanel);
 		
 		
 		
@@ -53,11 +53,11 @@ public class test {
 		
 	
 		
-		auﬂenPanel.add(inneresPanel, BorderLayout.CENTER);
-		auﬂenPanel.add(text, BorderLayout.NORTH);
-		auﬂenPanel.add(rechts,BorderLayout.EAST);
-		auﬂenPanel.add(links,BorderLayout.WEST);
-		auﬂenPanel.add(unten,BorderLayout.SOUTH);
+		au√üenPanel.add(inneresPanel, BorderLayout.CENTER);
+		au√üenPanel.add(text, BorderLayout.NORTH);
+		au√üenPanel.add(rechts,BorderLayout.EAST);
+		au√üenPanel.add(links,BorderLayout.WEST);
+		au√üenPanel.add(unten,BorderLayout.SOUTH);
 		
 		
 		
