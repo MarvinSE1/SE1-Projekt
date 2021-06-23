@@ -57,4 +57,76 @@ public class SetPositionMethod {
 //		assertEquals(canv.getHeight() * -1, c.getY());
 	}
 
+	@Test // (expected = InvalidYCoordinate.class)
+	public void HeightBigger0Test1() throws Exception {
+		Canvas canv = new Canvas();
+		// TODO uncomment when method implemented
+//		Component c = new Component();
+//		c.addToCanvas();
+//		c.setPosition(canv.getWidth(), 1);
+	}
+
+	@Test // (expected = InvalidYCoordinate.class)
+	public void HeightBigger0Test2() throws Exception {
+		Canvas canv = new Canvas();
+		// TODO uncomment when method implemented
+//		Component c = new Component();
+//		c.addToCanvas();
+//		c.setPosition(0, 1);
+	}
+
+	@Test // (expected = InvalidYCoordinate.class)
+	public void HeightSmallerGetHeightTest1() throws Exception {
+		Canvas canv = new Canvas();
+		// TODO uncomment when method implemented
+//		Component c = new Component();
+//		c.addToCanvas();
+//		c.setPosition(canv.getWidth(), (canv.getHeight() * -1) - 1);
+	}
+
+	@Test // (expected = InvalidYCoordinate.class)
+	public void HeightSmallerGetHeightTest2() throws Exception {
+		Canvas canv = new Canvas();
+		// TODO uncomment when method implemented
+//		Component c = new Component();
+//		c.addToCanvas();
+//		c.setPosition(0, (canv.getHeight() * -1) - 1);
+	}
+
+	@Test // (expected = InvalidXCoordinate.class)
+	public void WidthBiggerGetWidthTest1() throws Exception {
+		Canvas canv = new Canvas();
+		// TODO uncomment when method implemented
+//		Component c = new Component();
+//		c.addToCanvas();
+//		c.setPosition(getWidth() + 1, 0);
+	}
+
+	@Test // (expected = InvalidXCoordinate.class)
+	public void WidthLower0Test1() throws Exception {
+		Canvas canv = new Canvas();
+		// TODO uncomment when method implemented
+//		Component c = new Component();
+//		c.addToCanvas();
+//		c.setPosition(-1, 0);
+	}
+
+	@Test // (expected = InvalidXCoordinate.class)
+	public void WidthBiggerGetWidthTest2() throws Exception {
+		Canvas canv = new Canvas();
+		// TODO uncomment when method implemented
+//		Component c = new Component();
+//		c.addToCanvas();
+//		c.setPosition(getWidth() + 1, getHeight());
+	}
+
+	@Test // (expected = InvalidXCoordinate.class)
+	public void WidthLower0Test2() throws Exception {
+		Canvas canv = new Canvas();
+		// TODO uncomment when method implemented
+//		Component c = new Component();
+//		c.addToCanvas();
+//		c.setPosition(-1, getHeight());
+	}
+
 }
