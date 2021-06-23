@@ -1,3 +1,11 @@
-/GUI/
-/guiInterface.class
-/digitalsimulator/
+/ComponentClass/
+/AndGateClass/
+/OrGateClass/
+/NotGateClass/
+/GateClass/
+/ComponentInputClass/
+/ComponentOutputClass/
+/ConnectionClass/
+/CanvasClass/
+/SwitchClass/
+/LampClass/

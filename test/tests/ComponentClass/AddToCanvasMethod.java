@@ -1,0 +1,14 @@
+package ComponentClass;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class AddToCanvasMethod {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}
