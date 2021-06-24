@@ -4,6 +4,7 @@ import javax.swing.JButton;
 
 public class ComponentInput extends JButton {
 
+
 	private boolean value;
 	
 	public boolean getValue() {

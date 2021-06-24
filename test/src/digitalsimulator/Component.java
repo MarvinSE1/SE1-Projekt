@@ -18,7 +18,8 @@ public class Component extends JComponent {
 	
 	Component(){
 		this.setBackground(Color.GRAY);
-		this.setVisible(true);
+		//this.setVisible(true);
+		setLayout(null);
 		this.setBounds(posX,posY,sizeX,sizeY);
 		
 		ComponentListener listener = new ComponentListener();

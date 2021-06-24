@@ -5,13 +5,18 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 public class Lamp extends Component {
 	
 	Lamp(){
+		super();
 		input = new ComponentInput[1];
+		input[0] = new ComponentInput();
+		input[0].setBounds(0,40,20,20);
+		add(input[0]);
 		
 	}
 
