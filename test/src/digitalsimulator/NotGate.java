@@ -3,7 +3,10 @@ package digitalsimulator;
 public class NotGate extends Gate {
 
 	public boolean getValueNotGate() {
-		return input[0].getValue();
+		if(input[0].getValue()==true)
+			return false;
+		else
+			return true;
 	}
 
 }

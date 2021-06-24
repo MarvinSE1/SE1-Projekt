@@ -40,8 +40,7 @@ public class Lamp extends Component {
 	}
 	
 	public boolean getLampStatus() {
-		value = input[0].getValue();
-		return value;
+		return input[0].getValue();
 	}
 
 	

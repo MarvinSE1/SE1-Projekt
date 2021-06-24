@@ -8,7 +8,6 @@ import java.awt.event.*;
 
 public class Component extends JComponent {
 	
-	protected boolean value;
 	private int posX = 0;
 	private int posY = 0;
 	private final int sizeX = 100;
@@ -34,14 +33,6 @@ public class Component extends JComponent {
 		g.drawRect(posX,posY,sizeX-1,sizeY-1);
 	}
 
-	public boolean getValue() {	
-		return this.value;
-	}
-	
-	public void setValue(boolean newValue) {
-		this.value = newValue;
-	}
-	
 	public void setHeigth(int y) {
 		sizeY = y;
 	}
