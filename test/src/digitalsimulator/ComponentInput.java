@@ -4,8 +4,16 @@ import javax.swing.JButton;
 
 public class ComponentInput extends JButton {
 
-
+	private boolean isOnConnection = false;
 	private boolean value;
+	
+	public boolean getConnectionStatus() {
+		return isOnConnection;
+	}
+	
+	public void setConnectionStatus(boolean status) {
+		isOnConnection = status;
+	}
 	
 	public boolean getValue() {
 		return value;
