@@ -33,8 +33,9 @@ public class Lamp extends Component {
 	public void lampOn() {
 		setBackground(Color.YELLOW);
 	}
-
+	
 	public boolean getLampStatus() {
+		value = input[0].getValue();
 		return value;
 	}
 
