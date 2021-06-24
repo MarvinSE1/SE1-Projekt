@@ -1,6 +1,11 @@
 package digitalsimulator;
 
 public class Gate extends Component {
+	
+	Gate(){
+		input = new ComponentInput[2];
+		output = new ComponentOutput();
+	}
 
 	public void changeNumberOfInputs(int amount) {
 		// TODO Auto-generated method stub

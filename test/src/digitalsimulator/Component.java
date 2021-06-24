@@ -8,11 +8,13 @@ import java.awt.event.*;
 
 public class Component extends JComponent {
 	
-	private boolean value;
+	protected boolean value;
 	private int posX = 0;
 	private int posY = 0;
 	private final int sizeX = 100;
-	private final int sizeY = 100;
+	private int sizeY = 100;
+	protected ComponentInput[] input;
+	protected ComponentOutput output;
 	
 	Component(){
 		this.setBackground(Color.GRAY);
@@ -28,7 +30,7 @@ public class Component extends JComponent {
 		g.setColor(getBackground());
 		g.fillRect(posX,posY,sizeX,sizeY);
 		g.setColor(Color.black);
-		g.drawRect(posX,posY,sizeX,sizeY);
+		g.drawRect(posX,posY,sizeX-1,sizeY-1);
 	}
 
 	public boolean getValue() {	
@@ -39,15 +41,29 @@ public class Component extends JComponent {
 		this.value = newValue;
 	}
 	
+	public void setHeigth(int y) {
+		sizeY = y;
+	}
+
+	public int getHeigth() {
+		return sizeY;
+	}
+	
 	public void setPosition(int x, int y) {
 		this.posX = x;
 		this.posY = y;
 		this.repaint();
 	}
 	
+	public int getPositionX() {
+		return posX;
+	}
+	
+	public int getPositionY() {
+		return posY;
+	}
+	
 	public class ComponentListener implements MouseMotionListener,MouseListener{
-
-		private boolean moved = false;
 		
 		@Override
 		public void mouseDragged(MouseEvent e) {
@@ -55,12 +71,12 @@ public class Component extends JComponent {
 				Component o = (Component) e.getSource();
 				int eventx = e.getX();
 				int eventy = e.getY();
-				if (Math.abs(eventx - posX) > 5 || Math.abs(eventy - posY) > 5) {
+//				if (Math.abs(eventx - posX) > 5 || Math.abs(eventy - posY) > 5) {
 					Rectangle r = o.getBounds();
 					int x = (int) r.getX();
 					int y = (int) r.getY();
 					o.setBounds(x + (eventx - posX), y + (eventy - posY), sizeX,	sizeY);
-				}
+//				}
 			}
 		}
 		@Override
@@ -77,7 +93,6 @@ public class Component extends JComponent {
 		}
 		@Override
 		public void mouseReleased(MouseEvent e) {
-			moved=false;
 		}
 		@Override
 		public void mouseEntered(MouseEvent e) {
