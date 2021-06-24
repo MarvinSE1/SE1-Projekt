@@ -1,26 +1,37 @@
 package digitalsimulator;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
 public class Lamp extends Component {
 	
 	Lamp(){
 		input = new ComponentInput[1];
-		value = input[0].getValue();
+		
 	}
 
 	
 	public void paint(Graphics g) {
+		g.setColor(getBackground());
+		g.fillOval(getPositionX(),getPositionY(),getWidth(),getHeigth());
+		g.setColor(Color.black);
+		g.drawString("Lamp", 33, 53);
+		g.drawRect(getPositionX(),getPositionY(),getWidth()-1,getHeigth()-1);
+		g.drawOval(getPositionX(),getPositionY(),getWidth(),getHeigth());
+		
 	}
 	
 	public void lampOff() {
-		
+		setBackground(Color.GRAY);
 	}
 
 	public void lampOn() {
-		
+		setBackground(Color.YELLOW);
 	}
 
 	public boolean getLampStatus() {
@@ -36,9 +47,13 @@ public static void main(String[] args) {
 		test.setVisible(true);
 		test.setSize(500,500);
 		
-		Component t = new Component();
+		Lamp t = new Lamp();
 		Component t2 = new Component();
 		test.add(t);
 		test.add(t2);
+		t.lampOn();
+		
 	}
 }
+
+

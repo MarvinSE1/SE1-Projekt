@@ -48,6 +48,9 @@ public class Component extends JComponent {
 	public int getHeigth() {
 		return sizeY;
 	}
+	public int getWidth() {
+		return sizeX;
+	}
 	
 	public void setPosition(int x, int y) {
 		this.posX = x;
