@@ -1,24 +1,36 @@
 package digitalsimulator;
 
 public class Gate extends Component {
-	
-	Gate(){
-		input = new ComponentInput[2];
+
+	private NotGate notGate;
+	private AndGate andGate;
+	private OrGate orGate;
+
+	Gate() {
+		if (this == notGate)
+			input = new ComponentInput[1];
+		else
+			input = new ComponentInput[2];
 		output = new ComponentOutput();
 	}
 
 	public void changeNumberOfInputs(int amount) {
-		// TODO Auto-generated method stub
+		if (this != notGate)
+			if (amount >= 2)
+				input = new ComponentInput[amount];
 	}
 
 	public int getInputAmount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return input.length;
 	}
 
 	public boolean gateOP() {
-		// TODO Auto-generated method stub
-		return false;
+		if (this == notGate)
+			return notGate.getValueNotGate();
+		else if (this == andGate)
+			return andGate.getValueAndGate();
+		else
+			return orGate.getValueOrGate();
 	}
 
 }

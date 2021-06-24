@@ -3,8 +3,10 @@ package digitalsimulator;
 public class AndGate extends Gate {
 
 	public boolean getValueAndGate() {
-		// TODO Auto-generated method stub
-		return false;
+		for (int i = 0; i < input.length; i++)
+			if (input[i].getValue() == false)
+				return false;
+		return true;
 	}
 
 }

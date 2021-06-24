@@ -52,7 +52,6 @@ public static void main(String[] args) {
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		test.setVisible(true);
 		test.setSize(500,500);
-		
 		Lamp t = new Lamp();
 		Component t2 = new Component();
 		test.add(t);

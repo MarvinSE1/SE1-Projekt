@@ -2,19 +2,21 @@ package digitalsimulator;
 
 public class Switch extends Component {
 
-	public void turnSwitchOff() {
-		// TODO Auto-generated method stub
+	private ComponentOutput output;
+	private boolean value;
 
+	public void turnSwitchOff() {
+		output.setValue(false);
+		value = false;
 	}
 
 	public void turnSwitchOn() {
-		// TODO Auto-generated method stub
-
+		output.setValue(true);
+		value = true;
 	}
 
 	public boolean getValueSwitch() {
-		// TODO Auto-generated method stub
-		return false;
+		return value;
 	}
 
 }
