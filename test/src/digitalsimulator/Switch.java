@@ -22,6 +22,7 @@ public class Switch extends Component {
 	}
 
 	public void paint(Graphics g) {
+		super.paint(g);
 		g.setColor(getBackground());
 		g.fillRect(getPositionX(),getPositionY(),getWidth(),getHeigth());
 		g.setColor(new Color(230,239,255));
@@ -30,7 +31,6 @@ public class Switch extends Component {
 		g.setColor(Color.LIGHT_GRAY);
 		g.drawRect(30,30,39,39);
 		g.drawRect(79,40,19,19);
-		g.fillRect(getPositionX(), getPositionY(), getWidth(), getHeigth());
 		g.setColor(Color.black);
 		g.drawString("Switch", 33, 21);
 		g.drawRect(getPositionX(), getPositionY(), getWidth() - 1, getHeigth() - 1);
