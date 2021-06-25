@@ -1,5 +1,8 @@
 package digitalsimulator;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 public class NotGate extends Gate {
 
 	public boolean getValueNotGate() {
@@ -8,5 +11,7 @@ public class NotGate extends Gate {
 		else
 			return true;
 	}
+	
+	
 
 }
