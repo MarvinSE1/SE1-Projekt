@@ -5,6 +5,7 @@ import java.awt.Graphics;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class Switch extends Component {
 
@@ -17,10 +18,18 @@ public class Switch extends Component {
 		output.setBounds(79, 40, 20, 20);
 		add(switchButton);
 		add(output);
+		
 	}
 
 	public void paint(Graphics g) {
 		g.setColor(getBackground());
+		g.fillRect(getPositionX(),getPositionY(),getWidth(),getHeigth());
+		g.setColor(new Color(230,239,255));
+		g.fillRect(30,30,40,40);
+		g.fillRect(79,40,20,20);
+		g.setColor(Color.LIGHT_GRAY);
+		g.drawRect(30,30,39,39);
+		g.drawRect(79,40,19,19);
 		g.fillRect(getPositionX(), getPositionY(), getWidth(), getHeigth());
 		g.setColor(Color.black);
 		g.drawString("Switch", 33, 21);
