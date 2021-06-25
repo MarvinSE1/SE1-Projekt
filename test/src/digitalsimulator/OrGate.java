@@ -5,10 +5,10 @@ import javax.swing.JFrame;
 public class OrGate extends Gate {
 	
 	OrGate(){
-		setInputs(4);
+		setInputs(2);
 	}
 
-	public boolean getValueOrGate() {
+	public boolean  gateOP() {
 		for (int i = 0; i < input.length; i++)
 			if (input[i].getValue() == true)
 				return true;

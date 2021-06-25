@@ -38,10 +38,12 @@ public class Switch extends Component {
 
 	public void turnSwitchOff() {
 		output.setValue(false);
+		setBackground(Color.GRAY);
 	}
 
 	public void turnSwitchOn() {
 		output.setValue(true);
+		setBackground(Color.ORANGE);
 	}
 
 	public boolean getValueSwitch() {
@@ -57,5 +59,6 @@ public class Switch extends Component {
 		Component t2 = new Component();
 		test.add(t);
 		test.add(t2);
+		t.turnSwitchOn();
 	}
 }
