@@ -16,6 +16,12 @@ public class NotGate extends Gate {
 			return true;
 	}
 	
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.setColor(Color.black);
+		g.drawString("Not", 33, 53);
+	}
+	
 	
 
 }

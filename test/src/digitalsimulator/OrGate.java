@@ -1,5 +1,8 @@
 package digitalsimulator;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 import javax.swing.JFrame;
 
 public class OrGate extends Gate {
@@ -13,6 +16,12 @@ public class OrGate extends Gate {
 			if (input[i].getValue() == true)
 				return true;
 		return false;
+	}
+	
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.setColor(Color.black);
+		g.drawString("Or", 33, 53);
 	}
 	
 	
