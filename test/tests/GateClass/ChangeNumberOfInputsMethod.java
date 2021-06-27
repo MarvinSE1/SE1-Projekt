@@ -9,6 +9,7 @@ import digitalsimulator.Gate;
 public class ChangeNumberOfInputsMethod {
 
 	// TODO testen wenn gleich anzahl input und gesetzt
+	// test
 
 	@Test
 	public void validInputNumber() throws Exception {
