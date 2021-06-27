@@ -151,6 +151,7 @@ public class Component extends JComponent {
 		test.setVisible(true);
 		test.setSize(500, 500);
 
+		//Gate t5 = new Gate();
 		AndGate t = new AndGate();
 		NotGate t2 = new NotGate();
 		OrGate t3 = new OrGate();
@@ -160,5 +161,6 @@ public class Component extends JComponent {
 		test.add(t2);
 		test.add(t3);
 		test.add(t4);
+		//test.add(t5);
 	}
 }
