@@ -8,11 +8,13 @@ import digitalsimulator.Gate;
 
 public class ChangeNumberOfInputsMethod {
 
+	// TODO testen wenn gleich anzahl input und gesetzt
+
 	@Test
 	public void validInputNumber() throws Exception {
 		Gate g = new Gate();
-		g.changeNumberOfInputs(1);
-		assertEquals(1, g.getInputAmount());
+		g.changeNumberOfInputs(2);
+		assertEquals(2, g.getInputAmount());
 	}
 
 	@Test // (expected = InvalidInputNumberException.class)
