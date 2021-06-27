@@ -22,6 +22,11 @@ public class Lamp extends Component {
 		g.drawString("Lamp", 33, 53);
 		g.drawRect(getPositionX(), getPositionY(), getWidth() - 1, getHeigth() - 1);
 		g.drawOval(getPositionX(), getPositionY(), getWidth(), getHeigth());
+		
+		g.setColor(new Color(230,239,255));
+		g.fillRect(0, 40, 19, 19);
+		g.setColor(Color.LIGHT_GRAY);
+		g.drawRect(0, 40, 19, 19);
 	}
 
 	public void lampOff() {
