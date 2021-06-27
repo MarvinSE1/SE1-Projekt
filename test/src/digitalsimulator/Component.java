@@ -55,10 +55,15 @@ public class Component extends JComponent {
 		return sizeX;
 	}
 
-	public void setPosition(int x, int y) {
-		this.posX = x;
-		this.posY = y;
-		this.repaint();
+	public void setPosition(int eventx, int eventy,Component o) {
+//		this.posX = x;
+//		this.posY = y;
+//		this.repaint();
+//		Component o = (Component) e.getSource();
+		Rectangle r = o.getBounds();
+		int x = (int) r.getX();
+		int y = (int) r.getY();
+		o.setBounds(x + (eventx - posX), y + (eventy - posY), sizeX, sizeY);
 	}
 
 	public int getPositionX() {
@@ -94,10 +99,11 @@ public class Component extends JComponent {
 				Component o = (Component) e.getSource();
 				int eventx = e.getX();
 				int eventy = e.getY();
-				Rectangle r = o.getBounds();
-				int x = (int) r.getX();
-				int y = (int) r.getY();
-				o.setBounds(x + (eventx - posX), y + (eventy - posY), sizeX, sizeY);
+				setPosition(eventx,eventy,o);
+//				Rectangle r = o.getBounds();
+//				int x = (int) r.getX();
+//				int y = (int) r.getY();
+//				o.setBounds(x + (eventx - posX), y + (eventy - posY), sizeX, sizeY);
 			}
 		}
 		
