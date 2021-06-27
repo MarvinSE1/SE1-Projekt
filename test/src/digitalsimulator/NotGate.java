@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 public class NotGate extends Gate {
 	
-	NotGate(){
+	public NotGate(){
 		setInputs(1);
 		//output = new ComponentOutput();
 		//output.setBounds(79, 40, 20, 20);

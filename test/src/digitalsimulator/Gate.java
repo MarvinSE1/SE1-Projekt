@@ -16,7 +16,7 @@ public class Gate extends Component{
 //	private int posX;
 //	private int posY;
 	
-	Gate(){
+	public Gate(){
 		output = new ComponentOutput();
 		output.setBounds(79, 40, 20, 20);
 		add(output);
@@ -56,36 +56,37 @@ public class Gate extends Component{
 	}
 	
 	public void setInputs(int amount) {
-		input = new ComponentInput[amount];
-		int abstand = 40;
+		if(amount >=1) {
+			input = new ComponentInput[amount];
+			int abstand = 40;
 		
 		
-		setHeigth(100);
+			setHeigth(100);
 		
-		if(getHeigth() < abstand*amount + abstand/2)
-			setHeigth(abstand*amount + abstand/2);
+			if(getHeigth() < abstand*amount + abstand/2)
+				setHeigth(abstand*amount + abstand/2);
 		
 			
 		
-		for(int i = 0;i < amount; i++) {
-			input[i] = new ComponentInput();
-			//input[i].getDraw();
+			for(int i = 0;i < amount; i++) {
+				input[i] = new ComponentInput();
+				//input[i].getDraw();
 			
-			//System.out.println(input[i].getDraw());
-			if(amount == 1) {
-				input[i].setBounds(0, 40, 20, 20);
-				//input[i].setInputPos(0,40);
+				//System.out.println(input[i].getDraw());
+				if(amount == 1) {
+					input[i].setBounds(0, 40, 20, 20);
+					//input[i].setInputPos(0,40);
+				}
+				else {
+					input[i].setBounds(0, i*abstand +abstand/2, 20, 20);
+					//input[i].setInputPos(0,i*abstand +abstand/2);
+				}
+				add(input[i]);
+//				input[i].setInputArray(input);
 			}
-			else {
-				input[i].setBounds(0, i*abstand +abstand/2, 20, 20);
-				//input[i].setInputPos(0,i*abstand +abstand/2);
-			}
-			add(input[i]);
-//			input[i].setInputArray(input);
-		}
 		//setInputArray(input);
 		
-		
+		}
 	}
 //	public void setInputPos(int x, int y) {
 //		posX = x;

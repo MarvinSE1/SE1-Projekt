@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 public class Lamp extends Component {
 
-	Lamp() {
+	public Lamp() {
 		//super();
 		input = new ComponentInput[1];
 		input[0] = new ComponentInput();

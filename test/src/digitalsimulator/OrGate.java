@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 
 public class OrGate extends Gate {
 	
-	OrGate(){
+	public OrGate(){
 		setInputs(2);
 		//output = new ComponentOutput();
 		//output.setBounds(79, 40, 20, 20);

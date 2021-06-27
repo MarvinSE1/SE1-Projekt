@@ -11,7 +11,7 @@ public class Switch extends Component {
 
 	private JButton switchButton;
 
-	Switch() {
+	public Switch() {
 		output = new ComponentOutput();
 		switchButton = new JButton();
 		switchButton.setBounds(30, 30, 40, 40);
