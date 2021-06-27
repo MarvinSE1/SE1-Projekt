@@ -12,13 +12,13 @@ public class GetValueOrGateMethod {
 	public void getterWithTrue() throws Exception {
 		OrGate a = new OrGate();
 		a.setValue(true);
-		assertEquals(true, a.getValueOrGate());
+		assertEquals(true, a.gateOP());
 	}
 
 	@Test
 	public void getterWithFalse() throws Exception {
 		OrGate a = new OrGate();
 		a.setValue(false);
-		assertEquals(false, a.getValueOrGate());
+		assertEquals(false, a.gateOP());
 	}
 }
