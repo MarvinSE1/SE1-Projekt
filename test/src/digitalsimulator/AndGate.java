@@ -7,6 +7,9 @@ public class AndGate extends Gate {
 	
 	AndGate(){
 		setInputs(2);
+		//output = new ComponentOutput();
+		//output.setBounds(79, 40, 20, 20);
+		//add(output);
 	}
 
 	public boolean  gateOP() {
@@ -19,7 +22,7 @@ public class AndGate extends Gate {
 	public void paint(Graphics g) {
 		super.paint(g);
 		g.setColor(Color.black);
-		g.drawString("And", 33, 53);
+		g.drawString("And", 40, 21);
 	}
 
 }

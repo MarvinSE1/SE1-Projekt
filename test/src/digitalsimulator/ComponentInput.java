@@ -75,7 +75,7 @@ public class ComponentInput extends JButton implements ActionListener{
 			if(draw) {
 				
 				draw = false;
-				System.out.println(draw);
+				//System.out.println(draw);
 				//eventx = getInputPosX();
 				//eventy = getInputPosY();
 				//repaint();
@@ -83,7 +83,7 @@ public class ComponentInput extends JButton implements ActionListener{
 			else {
 				
 				draw = true;
-				System.out.println(draw);
+				//System.out.println(draw);
 				//System.out.println("gedrückt");
 			}
 			
@@ -109,10 +109,10 @@ public class ComponentInput extends JButton implements ActionListener{
 	test.add(t2);
 	}
 
-   public void paint(Graphics g) {
+   /*public void paint(Graphics g) {
        super.paint(g);
         //drawLines(g);
-    }
+    }*/
 
 	
 	

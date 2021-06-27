@@ -85,8 +85,8 @@ public class Component extends JComponent {
 	
 	public class ComponentListener implements MouseMotionListener, MouseListener {
 
-		private int eventx;
-		private int eventy;
+		//private int eventx;
+		//private int eventy;
 		
 		@Override
 		public void mouseDragged(MouseEvent e) {
@@ -104,7 +104,7 @@ public class Component extends JComponent {
 		@Override
 		public void mouseMoved(MouseEvent e) {
 			
-			for(int i = 0; i < input.length;i++) {
+			/*for(int i = 0; i < input.length;i++) {
 				
 				if(input[i].getDraw()) {
 					System.out.println("heas");
@@ -112,7 +112,7 @@ public class Component extends JComponent {
 					eventy = e.getY();
 					
 				}
-			}
+			}*/
 		}
 		
 		

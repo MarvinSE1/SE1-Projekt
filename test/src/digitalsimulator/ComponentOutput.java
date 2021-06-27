@@ -17,7 +17,7 @@ public class ComponentOutput extends JButton implements ActionListener,MouseMoti
 	private int posY;
 	
 	ComponentOutput() {
-		output = new ComponentOutput();
+		//output = new ComponentOutput();
 		addActionListener(this);
 		addMouseMotionListener(this);
 	}

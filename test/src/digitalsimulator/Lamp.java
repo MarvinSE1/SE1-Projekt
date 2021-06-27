@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 public class Lamp extends Component {
 
 	Lamp() {
-		super();
+		//super();
 		input = new ComponentInput[1];
 		input[0] = new ComponentInput();
 		input[0].setBounds(0, 40, 20, 20);
