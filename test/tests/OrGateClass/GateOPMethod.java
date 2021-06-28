@@ -1,25 +1,24 @@
-package AndGateClass;
+package OrGateClass;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import digitalsimulator.AndGate;
+import digitalsimulator.OrGate;
 
-public class GetValueAndGateMethod {
+public class GateOPMethod {
 
 	@Test
 	public void getterWithTrue() throws Exception {
-		AndGate a = new AndGate();
+		OrGate a = new OrGate();
 		a.setValue(true);
 		assertEquals(true, a.gateOP());
 	}
 
 	@Test
 	public void getterWithFalse() throws Exception {
-		AndGate a = new AndGate();
+		OrGate a = new OrGate();
 		a.setValue(false);
 		assertEquals(false, a.gateOP());
 	}
-
 }

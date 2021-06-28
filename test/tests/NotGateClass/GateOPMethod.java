@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import digitalsimulator.NotGate;
 
-public class GetValueNotGateMethod {
+public class GateOPMethod {
 
 	@Test
 	public void getterWithTrue() throws Exception {
