@@ -12,14 +12,14 @@ public class GateOPMethod {
 	public void getterWithTrue() throws Exception {
 		NotGate a = new NotGate();
 		a.setValue(true);
-		assertEquals(true, a.gateOP());
+		assertEquals(false, a.gateOP());
 	}
 
 	@Test
 	public void getterWithFalse() throws Exception {
 		NotGate a = new NotGate();
 		a.setValue(false);
-		assertEquals(false, a.gateOP());
+		assertEquals(true, a.gateOP());
 	}
 
 }
