@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 
 public class Lamp extends Component {
 
-	Lamp() {
-		super();
+	public Lamp() {
+		//super();
 		input = new ComponentInput[1];
 		input[0] = new ComponentInput();
 		input[0].setBounds(0, 40, 20, 20);
@@ -22,6 +22,11 @@ public class Lamp extends Component {
 		g.drawString("Lamp", 33, 53);
 		g.drawRect(getPositionX(), getPositionY(), getWidth() - 1, getHeigth() - 1);
 		g.drawOval(getPositionX(), getPositionY(), getWidth(), getHeigth());
+		
+		g.setColor(new Color(230,239,255));
+		g.fillRect(0, 40, 19, 19);
+		g.setColor(Color.LIGHT_GRAY);
+		g.drawRect(0, 40, 19, 19);
 	}
 
 	public void lampOff() {
@@ -45,6 +50,6 @@ public class Lamp extends Component {
 		Component t2 = new Component();
 		test.add(t);
 		test.add(t2);
-		t.lampOn();
+		//t.lampOn();
 	}
 }

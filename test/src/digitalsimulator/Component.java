@@ -19,16 +19,19 @@ public class Component extends JComponent {
 	private int sizeY = 100;
 	protected ComponentInput[] input;
 	protected ComponentOutput output;
+	private boolean draw  = false;
 
-	Component() {
+	
+
+	public Component() {
 		this.setBackground(Color.GRAY);
-		// this.setVisible(true);
 		setLayout(null);
 		this.setBounds(posX, posY, sizeX, sizeY);
 
 		ComponentListener listener = new ComponentListener();
 		this.addMouseMotionListener(listener);
 		this.addMouseListener(listener);
+		
 	}
 
 	public void paint(Graphics g) {
@@ -36,7 +39,9 @@ public class Component extends JComponent {
 		g.fillRect(posX, posY, sizeX, sizeY);
 		g.setColor(Color.black);
 		g.drawRect(posX, posY, sizeX - 1, sizeY - 1);
+		
 	}
+	
 
 	public void setHeigth(int y) {
 		sizeY = y;
@@ -50,10 +55,15 @@ public class Component extends JComponent {
 		return sizeX;
 	}
 
-	public void setPosition(int x, int y) {
-		this.posX = x;
-		this.posY = y;
-		this.repaint();
+	public void setPosition(int eventx, int eventy,Component o) {
+//		this.posX = x;
+//		this.posY = y;
+//		this.repaint();
+//		Component o = (Component) e.getSource();
+		Rectangle r = o.getBounds();
+		int x = (int) r.getX();
+		int y = (int) r.getY();
+		o.setBounds(x + (eventx - posX), y + (eventy - posY), sizeX, sizeY);
 	}
 
 	public int getPositionX() {
@@ -63,28 +73,55 @@ public class Component extends JComponent {
 	public int getPositionY() {
 		return posY;
 	}
-
+	public void setDraw(boolean draw) {
+		this.draw = draw;
+	}
+	public boolean getDraw() {
+		return draw;
+	}
+	
+	public void setInputArray(ComponentInput[] a) {
+		input = a;
+	}
+	public ComponentInput[] getInputArray() {
+		
+		return input;
+	}
+	
 	public class ComponentListener implements MouseMotionListener, MouseListener {
 
+		//private int eventx;
+		//private int eventy;
+		
 		@Override
 		public void mouseDragged(MouseEvent e) {
 			if (SwingUtilities.isLeftMouseButton(e) && e.getClickCount() == 0) {
 				Component o = (Component) e.getSource();
 				int eventx = e.getX();
 				int eventy = e.getY();
-//				if (Math.abs(eventx - posX) > 5 || Math.abs(eventy - posY) > 5) {
-				Rectangle r = o.getBounds();
-				int x = (int) r.getX();
-				int y = (int) r.getY();
-				o.setBounds(x + (eventx - posX), y + (eventy - posY), sizeX, sizeY);
-//				}
+				setPosition(eventx,eventy,o);
+//				Rectangle r = o.getBounds();
+//				int x = (int) r.getX();
+//				int y = (int) r.getY();
+//				o.setBounds(x + (eventx - posX), y + (eventy - posY), sizeX, sizeY);
 			}
 		}
-
+		
 		@Override
 		public void mouseMoved(MouseEvent e) {
-			// TODO Auto-generated method stub
+			
+			/*for(int i = 0; i < input.length;i++) {
+				
+				if(input[i].getDraw()) {
+					System.out.println("heas");
+					eventx = e.getX();
+					eventy = e.getY();
+					
+				}
+			}*/
 		}
+		
+		
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
@@ -117,9 +154,19 @@ public class Component extends JComponent {
 		test.setVisible(true);
 		test.setSize(500, 500);
 
-		Component t = new Component();
-		Component t2 = new Component();
+		//Gate t5 = new Gate();
+		AndGate t = new AndGate();
+		NotGate t2 = new NotGate();
+		OrGate t3 = new OrGate();
+		Component t4 = new Component();
+		Lamp t5 = new Lamp();
+		Switch t6 = new Switch();
+	
 		test.add(t);
 		test.add(t2);
+		test.add(t3);
+		test.add(t4);
+		test.add(t5);
+		test.add(t6);
 	}
 }

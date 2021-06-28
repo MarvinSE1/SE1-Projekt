@@ -2,22 +2,29 @@ package digitalsimulator;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
-public class Switch extends Component {
+public class Switch extends Component implements ActionListener{
 
 	private JButton switchButton;
+	
 
-	Switch() {
+	public Switch() {
 		output = new ComponentOutput();
 		switchButton = new JButton();
 		switchButton.setBounds(30, 30, 40, 40);
 		output.setBounds(79, 40, 20, 20);
 		add(switchButton);
 		add(output);
+		switchButton.addActionListener(this);
 		
 	}
 
@@ -38,10 +45,12 @@ public class Switch extends Component {
 
 	public void turnSwitchOff() {
 		output.setValue(false);
+		setBackground(Color.GRAY);
 	}
 
 	public void turnSwitchOn() {
 		output.setValue(true);
+		setBackground(Color.ORANGE);
 	}
 
 	public boolean getValueSwitch() {
@@ -57,5 +66,16 @@ public class Switch extends Component {
 		Component t2 = new Component();
 		test.add(t);
 		test.add(t2);
+		t.turnSwitchOn();
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(output.getValue())
+			turnSwitchOff();
+		else
+			turnSwitchOn();
+	}
+
+	
 }
