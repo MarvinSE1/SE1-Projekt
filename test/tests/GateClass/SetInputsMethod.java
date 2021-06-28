@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import digitalsimulator.Gate;
 
-public class ChangeNumberOfInputsMethod {
+public class SetInputsMethod {
 
 	Gate g;
 
@@ -18,20 +18,20 @@ public class ChangeNumberOfInputsMethod {
 
 	@Test
 	public void validAmountNumber() throws Exception {
-		g.changeNumberOfInputs(2);
-		assertEquals(2, g.getInputAmount());
+		g.setInputs(1);
+		assertEquals(1, g.getInputAmount());
 	}
 
 	@Test
 	public void invalidAmountNumber() throws Exception {
 		int amount = g.getInputAmount();
-		g.changeNumberOfInputs(0);
+		g.setInputs(0);
 		assertEquals(amount, g.getInputAmount());
 	}
 
 	@Test
 	public void amountEqualsCurrentInputNumber() throws Exception {
-		g.changeNumberOfInputs(g.getInputAmount());
+		g.setInputs(g.getInputAmount());
 		assertEquals(2, g.getInputAmount());
 	}
 

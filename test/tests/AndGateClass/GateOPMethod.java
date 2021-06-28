@@ -6,20 +6,20 @@ import org.junit.Test;
 
 import digitalsimulator.AndGate;
 
-public class GetValueAndGateMethod {
+public class GateOPMethod {
 
 	@Test
 	public void getterWithTrue() throws Exception {
 		AndGate a = new AndGate();
 		a.setValue(true);
-		assertEquals(true, a.getValueAndGate());
+		assertEquals(true, a.gateOP());
 	}
 
 	@Test
 	public void getterWithFalse() throws Exception {
 		AndGate a = new AndGate();
 		a.setValue(false);
-		assertEquals(false, a.getValueAndGate());
+		assertEquals(false, a.gateOP());
 	}
 
 }

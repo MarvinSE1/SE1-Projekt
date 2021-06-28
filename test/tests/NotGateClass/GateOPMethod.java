@@ -6,20 +6,20 @@ import org.junit.Test;
 
 import digitalsimulator.NotGate;
 
-public class GetValueNotGateMethod {
+public class GateOPMethod {
 
 	@Test
 	public void getterWithTrue() throws Exception {
 		NotGate a = new NotGate();
 		a.setValue(true);
-		assertEquals(true, a.getValueNotGate());
+		assertEquals(true, a.gateOP());
 	}
 
 	@Test
 	public void getterWithFalse() throws Exception {
 		NotGate a = new NotGate();
 		a.setValue(false);
-		assertEquals(false, a.getValueNotGate());
+		assertEquals(false, a.gateOP());
 	}
 
 }
