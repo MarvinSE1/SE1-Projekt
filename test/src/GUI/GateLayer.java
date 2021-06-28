@@ -1,0 +1,55 @@
+package GUI;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+import javax.swing.plaf.ColorUIResource;
+
+
+public class GateLayer extends JPanel  {
+	JButton andGate,notGate,orGate;
+	
+	GateLayer(){
+		
+		setBackground(ColorUIResource.BLACK);
+		setSize(500,200);
+		setLayout(new GridLayout(1,3,5,5));
+		JButton andGate=new JButton("AND");
+		JButton notGate=new JButton("NOT");
+		JButton orGate=new JButton("OR");
+		this.andGate=andGate;
+		this.notGate=notGate;
+		this.orGate=orGate;
+		
+		add(andGate,0,0);
+		add(orGate,0,1);
+		add(notGate,0,2);
+		
+		
+	}
+	
+public static void main(String[] args) {
+	JFrame frame=new JFrame();
+	frame.setSize(500,200);
+	GateLayer gate=new GateLayer();
+	frame.add(gate);
+	frame.setVisible(true);
+	
+	
+}
+
+	JButton getAndGate(){
+	return andGate;
+	
+	}
+
+	JButton getOrGate(){
+	return orGate;
+	}
+	JButton getNotGate(){
+	return notGate;
+
+		}
+}

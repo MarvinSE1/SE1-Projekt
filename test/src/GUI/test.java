@@ -57,6 +57,7 @@ public class test extends JFrame {
 
 	public static void main(String[] args) {
 		JFrame mFrame=new JFrame("Digitalsimulator");
+		mFrame.setIconImage(null);
 		mFrame.setSize(500,300);
 		mFrame.setLocationRelativeTo(null);
 		JPanel inPanel=new JPanel();
