@@ -13,6 +13,7 @@ public class ComponentOutput extends JButton implements ActionListener, MouseMot
 	private boolean draw = false;
 	private int posX;
 	private int posY;
+	private boolean value;
 
 	ComponentOutput() {
 		// output = new ComponentOutput();
@@ -20,7 +21,7 @@ public class ComponentOutput extends JButton implements ActionListener, MouseMot
 		addMouseMotionListener(this);
 	}
 
-	private boolean value;
+	
 
 	public boolean getValue() {
 		return value;

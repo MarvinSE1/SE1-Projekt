@@ -159,11 +159,14 @@ public class Component extends JComponent {
 		NotGate t2 = new NotGate();
 		OrGate t3 = new OrGate();
 		Component t4 = new Component();
+		Lamp t5 = new Lamp();
+		Switch t6 = new Switch();
 	
 		test.add(t);
 		test.add(t2);
 		test.add(t3);
 		test.add(t4);
-		//test.add(t5);
+		test.add(t5);
+		test.add(t6);
 	}
 }
