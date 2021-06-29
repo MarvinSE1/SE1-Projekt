@@ -18,7 +18,7 @@ public class ComponentDragDrop extends JLayeredPane  {
     public ComponentDragDrop(){
 
     	this.setPreferredSize(new Dimension(100,200));
-		this.setBorder(new LineBorder(Color.gray));
+    	this.setBorder(new LineBorder(new Color(0x353535)));
         
 //		  InputLayer input = new InputLayer();
 //        OutputLayer output= new OutputLayer();
@@ -29,10 +29,10 @@ public class ComponentDragDrop extends JLayeredPane  {
 //        this.gate=gate;
 //        this.custom=custom;
 //
-//        this.add(input,0);
-//        this.add(output,1);
-//        this.add(gate,2);
-//        this.add(custom,3);
+//        this.add(input);
+//        this.add(output);
+//        this.add(gate);
+//        this.add(custom);
 
     }
 

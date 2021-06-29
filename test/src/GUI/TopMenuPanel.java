@@ -12,15 +12,13 @@ public class TopMenuPanel extends JPanel{
 
 	public TopMenuPanel() {
 		
-		setBackground(new Color(0x777777));
-		setPreferredSize(new Dimension(100,50));
+		setPreferredSize(new Dimension(100,40));
 		setLayout(new FlowLayout(FlowLayout.LEADING));
-		this.setBorder(new LineBorder(Color.blue));
+		this.setBorder(new LineBorder(new Color(0x353535)));
 		
-		add(new JButton("Test1"));
-		add(new JButton("Test2"));
-		add(new JButton("Test3"));
-		add(new JButton("Test4"));
+		add(new JButton("New"));
+		add(new JButton("Save"));
+		add(new JButton("Run Simulation"));
 		
 	}
 }

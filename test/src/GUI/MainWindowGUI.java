@@ -28,6 +28,7 @@ public class MainWindowGUI extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(gbl);
 		this.setLocationRelativeTo(null);
+		this.setExtendedState(MAXIMIZED_BOTH);
 		
 		GridBagConstraints gc = new GridBagConstraints();
 		
