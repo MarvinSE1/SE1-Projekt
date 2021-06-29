@@ -8,7 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.plaf.ColorUIResource;
 
 public class CustomLayer extends JPanel  {
+	
 	static int counterButton;
+	
 	CustomLayer(){
 		setBackground(ColorUIResource.BLACK);
 		setSize(500,200);

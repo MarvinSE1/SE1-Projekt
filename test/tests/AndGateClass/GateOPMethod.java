@@ -9,16 +9,31 @@ import digitalsimulator.AndGate;
 public class GateOPMethod {
 
 	@Test
-	public void getterWithTrue() throws Exception {
+	public void operationValueWithTrue() throws Exception {
 		AndGate a = new AndGate();
 		a.setAllForTests(true);
 		assertEquals(true, a.gateOP());
 	}
 
 	@Test
-	public void getterWithFalse() throws Exception {
+	public void operationValueWithFalse() throws Exception {
 		AndGate a = new AndGate();
 		a.setAllForTests(false);
+		assertEquals(false, a.gateOP());
+	}
+
+	@Test
+	public void operationValueWithOneInputTrue() throws Exception {
+		AndGate a = new AndGate();
+		a.setAllForTests(false);
+		a.setValue(true);
+		assertEquals(false, a.gateOP());
+	}
+
+	public void operationValueWithOneInputFalse() throws Exception {
+		AndGate a = new AndGate();
+		a.setAllForTests(true);
+		a.setValue(false);
 		assertEquals(false, a.gateOP());
 	}
 

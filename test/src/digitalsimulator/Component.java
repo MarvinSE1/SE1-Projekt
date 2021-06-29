@@ -24,8 +24,9 @@ public class Component extends JComponent {
 	
 
 	public Component() {
+		
+		//setLayout(null);
 		this.setBackground(Color.GRAY);
-		setLayout(null);
 		this.setBounds(posX, posY, sizeX, sizeY);
 
 		ComponentListener listener = new ComponentListener();
@@ -109,7 +110,7 @@ public class Component extends JComponent {
 		
 		@Override
 		public void mouseMoved(MouseEvent e) {
-			
+		
 			/*for(int i = 0; i < input.length;i++) {
 				
 				if(input[i].getDraw()) {
@@ -149,8 +150,10 @@ public class Component extends JComponent {
 	}
 
 	public static void main(String[] args) {
+		
 		JFrame test = new JFrame("t");
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		test.setLocationRelativeTo(null);
 		test.setVisible(true);
 		test.setSize(500, 500);
 
@@ -168,5 +171,6 @@ public class Component extends JComponent {
 		test.add(t4);
 		test.add(t5);
 		test.add(t6);
+		t.setPosition(100,100,t);
 	}
 }

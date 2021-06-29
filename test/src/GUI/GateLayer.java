@@ -23,22 +23,12 @@ public class GateLayer extends JPanel  {
 		this.notGate=notGate;
 		this.orGate=orGate;
 		
-		add(andGate,0,0);
-		add(orGate,0,1);
-		add(notGate,0,2);
+		add(andGate);
+		add(orGate);
+		add(notGate);
 		
 		
 	}
-	
-public static void main(String[] args) {
-	JFrame frame=new JFrame();
-	frame.setSize(500,200);
-	GateLayer gate=new GateLayer();
-	frame.add(gate);
-	frame.setVisible(true);
-	
-	
-}
 
 	JButton getAndGate(){
 	return andGate;
