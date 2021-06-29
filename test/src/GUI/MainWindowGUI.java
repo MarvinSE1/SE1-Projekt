@@ -71,4 +71,26 @@ public class MainWindowGUI extends JFrame {
 		
 		this.setVisible(true);
 	}
+	
+	public MainWindowMenuBar getMainMenuBar() {
+		return mainWindow;
+	}
+	
+	public TopMenuPanel getTopPanel() {
+		return topPanel;
+	}
+	
+	public ComponentCategories getComponentCategories() {
+		return componentCategory;
+	}
+	
+	public ComponentDragDrop getComponentSelector() {
+		return componentSelector;
+	}
+	
+	public Canvas getCanvas() {
+		return canvas;
+	}
+	
+	
 }

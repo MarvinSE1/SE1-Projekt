@@ -21,9 +21,9 @@ private ComponentDragDrop DragDrop;
 
 MainGuiController( MainWindowGUI mainWindow){
 	this.guiMainWindow=mainWindow;
-	this.categoryPanel=mainWindow.getCategoryPanel();
+	this.categoryPanel=mainWindow.getComponentCategories();
 	this.canvas=mainWindow.getCanvas();
-	this.DragDrop=mainWindow.getDragDrop();
+	this.DragDrop=mainWindow.getComponentSelector();
 	
 	
 	
