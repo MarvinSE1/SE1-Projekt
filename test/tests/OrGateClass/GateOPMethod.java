@@ -11,14 +11,14 @@ public class GateOPMethod {
 	@Test
 	public void getterWithTrue() throws Exception {
 		OrGate a = new OrGate();
-		a.setValue(true);
+		a.setAllForTests(true);
 		assertEquals(true, a.gateOP());
 	}
 
 	@Test
 	public void getterWithFalse() throws Exception {
 		OrGate a = new OrGate();
-		a.setValue(false);
+		a.setAllForTests(false);
 		assertEquals(false, a.gateOP());
 	}
 }

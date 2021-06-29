@@ -23,6 +23,12 @@ public class AndGate extends Gate {
 		input[0].setValue(val);
 	}
 
+	public void setAllForTests(boolean val) {
+		for (int i = 0; i < input.length; i++) {
+			input[i].setValue(val);
+		}
+	}
+
 	public void paint(Graphics g) {
 		super.paint(g);
 		g.setColor(Color.black);

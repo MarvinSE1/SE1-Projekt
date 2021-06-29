@@ -50,6 +50,6 @@ public class Lamp extends Component {
 		Component t2 = new Component();
 		test.add(t);
 		test.add(t2);
-		t.lampOn();
+		//t.lampOn();
 	}
 }

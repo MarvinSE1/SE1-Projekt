@@ -11,14 +11,14 @@ public class GateOPMethod {
 	@Test
 	public void getterWithTrue() throws Exception {
 		AndGate a = new AndGate();
-		a.setValue(true);
+		a.setAllForTests(true);
 		assertEquals(true, a.gateOP());
 	}
 
 	@Test
 	public void getterWithFalse() throws Exception {
 		AndGate a = new AndGate();
-		a.setValue(false);
+		a.setAllForTests(false);
 		assertEquals(false, a.gateOP());
 	}
 
