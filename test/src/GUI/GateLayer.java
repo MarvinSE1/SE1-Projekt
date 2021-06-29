@@ -29,16 +29,6 @@ public class GateLayer extends JPanel  {
 		
 		
 	}
-	
-public static void main(String[] args) {
-	JFrame frame=new JFrame();
-	frame.setSize(500,200);
-	GateLayer gate=new GateLayer();
-	frame.add(gate);
-	frame.setVisible(true);
-	
-	
-}
 
 	JButton getAndGate(){
 	return andGate;

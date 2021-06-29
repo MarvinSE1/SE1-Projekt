@@ -11,15 +11,15 @@ import javax.swing.*;
 
 public class MainGuiController implements ActionListener,KeyListener,WindowListener {
 	
-private guiMainWindow guiMainWindow;
+private MainWindowGUI guiMainWindow;
 
 
-private	CategoryPanel categoryPanel;
+private	ComponentCategories categoryPanel;
 private Canvas canvas;
 private ComponentDragDrop DragDrop;
 
 
-MainGuiController( guiMainWindow mainWindow){
+MainGuiController( MainWindowGUI mainWindow){
 	this.guiMainWindow=mainWindow;
 	this.categoryPanel=mainWindow.getCategoryPanel();
 	this.canvas=mainWindow.getCanvas();
