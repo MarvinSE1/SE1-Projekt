@@ -3,23 +3,24 @@ package GUI;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-public class ComponentDragDrop extends JPanel  {
+public class ComponentDragDrop extends JLayeredPane  {
 	private JPanel[] layer;
 	private JPanel activePanel;
 	
 	ComponentDragDrop(){
+		super();
 		InputLayer input = new InputLayer();
 		OutputLayer output= new OutputLayer();
 		GateLayer gate= new GateLayer();
 		CustomLayer custom=new CustomLayer();
 		
-		JPanel[] layers=new JPanel[4];
-		layers[0]=input;
-		layers[1]=output;
-		layers[2]=gate;
-		layers[3]=custom;
+		this.add(input,0);
+		this.add(output,1);
+		this.add(gate,2);
+		this.add(custom,3);
 		
 		
 		
@@ -47,6 +48,27 @@ public class ComponentDragDrop extends JPanel  {
 	}
 	void setCustom() {
 		activePanel=layer[3];
+		
+		
+	}
+	
+	InputLayer getInput() {
+		return (InputLayer) this.layer[0];
+		
+		
+	}
+	OutputLayer getOutput() {
+	return 	(OutputLayer) this.layer[1];
+		
+		
+	}
+	GateLayer getGate() {
+		return (GateLayer) this.layer[2];
+		
+		
+	}
+	CustomLayer getCustom() {
+		return (CustomLayer) this.layer[3];
 		
 		
 	}
