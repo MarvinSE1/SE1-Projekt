@@ -31,8 +31,9 @@ public class SetInputsMethod {
 
 	@Test
 	public void amountEqualsCurrentInputNumber() throws Exception {
+		g.setInputs(1);
 		g.setInputs(g.getInputAmount());
-		assertEquals(2, g.getInputAmount());
+		assertEquals(1, g.getInputAmount());
 	}
 
 }

@@ -31,6 +31,7 @@ public class ChangeNumberOfInputsMethod {
 
 	@Test
 	public void amountEqualsCurrentInputNumber() throws Exception {
+		g.setInputs(2);
 		g.changeNumberOfInputs(g.getInputAmount());
 		assertEquals(2, g.getInputAmount());
 	}
