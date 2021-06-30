@@ -10,7 +10,7 @@ import javax.swing.border.LineBorder;
 import digitalsimulator.AndGate;
 
 public class Canvas extends JTabbedPane {
-
+//
 	private JButton plus;
 	private int newTabCounter;
 	
@@ -32,6 +32,7 @@ public class Canvas extends JTabbedPane {
 	public int getCanvasWidth() {
 		return 1;
 	}
+	
 	public int getCanvasHeight() {
 		return 1;
 	}

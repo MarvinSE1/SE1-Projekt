@@ -16,7 +16,6 @@ import runProgramm.runSim;
 public class MainGuiController implements ActionListener, KeyListener, WindowListener, MouseMotionListener {
 
 	private static MainWindowGUI guiMainWindow;
-
 	private ComponentCategories categoryPanel;
 	private TopMenuPanel topMenuPanel;
 	private Canvas canvas;

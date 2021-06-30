@@ -41,7 +41,7 @@ public class MainWindowMenuBar extends JMenuBar {
 		file.add(save);
 		file.add(exit);
 		
-		JMenuItem darkMode = new JMenuItem("Superior Mode     (Requires Restart)");
+		JMenuItem darkMode = new JMenuItem("Superior Mode    (Requires Restart)");
 		window.add(darkMode);
 	}	
 }

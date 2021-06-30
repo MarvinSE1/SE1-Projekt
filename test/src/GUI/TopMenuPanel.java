@@ -9,11 +9,10 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 public class TopMenuPanel extends JPanel{
-
+//
 	private JButton newCanvasPanel;
 	private JButton save;
 	private JButton runSimulation;
-	
 	
 	public TopMenuPanel() {
 		
