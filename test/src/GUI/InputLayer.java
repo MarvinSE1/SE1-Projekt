@@ -19,7 +19,7 @@ public class InputLayer extends JPanel   {
         JButton lever = new JButton("Lever");
         
         this.lever=lever;
-        this.add(lever,1,1);
+        this.add(lever);
         
         
     }
