@@ -1,40 +1,38 @@
-
 package GUI;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 
 import digitalsimulator.AndGate;
 
 public class Canvas extends JTabbedPane {
 
-	private static int counter = 0;
 	private JButton plus;
 
 	public Canvas() {
+		
 		this.setPreferredSize(new Dimension(1800, 700));
-
+		this.setBorder(new LineBorder(Color.CYAN,5));
 		this.plus = new JButton("+");
 		this.addTab("Canvas 1", new JPanel());
 		this.addTab("+", plus);
 		add(new AndGate());
 
 	}
-	public static void main(String[] args) {
-
-	}
-
+	
 	void addElement() {
 		this.add(new JPanel());
 		this.addTab("neu", new JPanel());
 	}
 	
-	public int getWidth() {
+	public int getCanvasWidth() {
 		return 1;
 	}
-	public int getHeight() {
+	public int getCanvasHeight() {
 		return 1;
 	}
 	
