@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
+import digitalsimulator.AndGate;
+
 public class Canvas extends JTabbedPane {
 
 	private static int counter = 0;
@@ -17,6 +19,10 @@ public class Canvas extends JTabbedPane {
 		this.plus = new JButton("+");
 		this.addTab("Canvas 1", new JPanel());
 		this.addTab("+", plus);
+		add(new AndGate());
+
+	}
+	public static void main(String[] args) {
 
 	}
 
@@ -55,5 +61,7 @@ public class Canvas extends JTabbedPane {
 	public void deleteOldLine() {
 		
 	}
-
+	public JButton getPlus() {
+		return plus;
+	}
 }

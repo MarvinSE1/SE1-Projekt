@@ -8,14 +8,14 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 public class ComponentCategories extends JPanel{
-	JButton gatter,custom,input,output;
+    JButton gate,custom,input,output;
 
     public ComponentCategories(){
 
         setPreferredSize(new Dimension(120,200));    
         setLayout(new GridLayout(4,1));
        
-        this.setBorder(new LineBorder(new Color(0x353535)));
+        this.setBorder(new LineBorder(Color.green));
         
         ButtonGroup bg=new ButtonGroup();
         
@@ -25,16 +25,29 @@ public class ComponentCategories extends JPanel{
         bg.add(input);
         JButton output = new JButton("Outputs");
         bg.add(output);
-        JButton custom = new JButton("Custom Components");
+        JButton custom = new JButton("Custom");
         bg.add(custom);
         
-        add(custom,1,0);
+        add(gate,0,0);
+        add(input,1,0);
         add(output,2,0);
-        add(input,3,0);
-        add(gate,4,0);
+        add(custom,3,0);
          
         this.setVisible(true);
         
     }
+    
+    
+    JButton getGate() {
+        return this.gate;
+    }
+    JButton getCustom() {
+        return this.custom;
+    }
+    JButton getInput() {
+        return this.input;
+    }JButton getOutput() {
+        return this.output;
+    }
+    
 }
-

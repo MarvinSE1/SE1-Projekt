@@ -9,21 +9,23 @@ import javax.swing.JPanel;
 import javax.swing.plaf.ColorUIResource;
 
 public class InputLayer extends JPanel   {
-	
-	private JButton lever;
-	
-	InputLayer(){
-		
-		setSize(500,200);
-		setLayout(new GridLayout(1,3,5,5));
-		JButton lever = new JButton("Lever");
-		
-		this.lever=lever;
-		this.add(lever);
-		
-		
-	}
+    
+    private JButton lever;
+    
+    InputLayer(){
+        
+        setSize(500,200);
+        setLayout(new GridLayout(1,3,5,5));
+        JButton lever = new JButton("Lever");
+        
+        this.lever=lever;
+        this.add(lever,1,1);
+        
+        
+    }
 
-	
+    JButton getLever() {
+        return this.lever;
+    }
 
 }

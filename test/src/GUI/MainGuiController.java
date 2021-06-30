@@ -17,6 +17,7 @@ private MainWindowGUI guiMainWindow;
 private	ComponentCategories categoryPanel;
 private Canvas canvas;
 private ComponentDragDrop DragDrop;
+private JButton gate,input,output,custom,lever,lamp,or,and,not,plus;
 
 
 MainGuiController( MainWindowGUI mainWindow){
@@ -24,6 +25,20 @@ MainGuiController( MainWindowGUI mainWindow){
 	this.categoryPanel=mainWindow.getComponentCategories();
 	this.canvas=mainWindow.getCanvas();
 	this.DragDrop=mainWindow.getComponentSelector();
+	this.gate=categoryPanel.getGate();
+	this.input=categoryPanel.getInput();
+	this.output=categoryPanel.getOutput();
+	this.custom=categoryPanel.getCustom();
+	this.lever=DragDrop.getInput().getLever();
+	this.lamp=DragDrop.getOutput().getLamp();
+	this.or=DragDrop.getGate().getOrGate();
+	this.and=DragDrop.getGate().getAndGate();
+	this.not=DragDrop.getGate().getNotGate();
+	this.plus=canvas.getPlus();
+	
+	this.gate.addActionListener(this);
+	this.gate.addActionListener(this);
+	
 	
 	
 	
@@ -82,6 +97,8 @@ public void keyTyped(KeyEvent arg0) {
 }
 @Override
 public void actionPerformed(ActionEvent arg0) {
+	if(arg0.getSource()==)
+	
 	// TODO Auto-generated method stub
 	
 }
@@ -91,3 +108,4 @@ public void actionPerformed(ActionEvent arg0) {
 	
 
 }
+
