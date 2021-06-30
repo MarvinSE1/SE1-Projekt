@@ -19,13 +19,14 @@ public class ComponentCategories extends JPanel{
         
         ButtonGroup bg=new ButtonGroup();
         
-        JButton gate=new JButton("Gates");      
+        this.gate=new JButton("Gates"); 
         bg.add(gate);
-        JButton input=new JButton("Inputs");
+         
+        this.input=new JButton("Inputs");
         bg.add(input);
-        JButton output = new JButton("Outputs");
+        this.output = new JButton("Outputs");
         bg.add(output);
-        JButton custom = new JButton("Custom");
+        this.custom = new JButton("Custom");
         bg.add(custom);
         
         add(gate,0,0);
