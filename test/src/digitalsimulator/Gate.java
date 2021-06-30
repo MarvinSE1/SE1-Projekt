@@ -124,6 +124,10 @@ public class Gate extends Component {
 		return this;
 	}
 
+	public ComponentOutput getOutput() {
+		return output;
+	}
+
 	public int getInputAmount() {
 		if (input == null) {
 			return 0;
