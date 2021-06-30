@@ -12,21 +12,21 @@ import digitalsimulator.AndGate;
 public class Canvas extends JTabbedPane {
 
 	private JButton plus;
-
+	private int newTabCounter;
+	
 	public Canvas() {
 		
+		newTabCounter = 2;
 		this.setPreferredSize(new Dimension(1800, 700));
-		this.setBorder(new LineBorder(Color.CYAN,5));
+		this.setBorder(new LineBorder(Color.CYAN,4));
 		this.plus = new JButton("+");
 		this.addTab("Canvas 1", new JPanel());
-		this.addTab("+", plus);
-		add(new AndGate());
 
 	}
 	
 	void addElement() {
-		this.add(new JPanel());
-		this.addTab("neu", new JPanel());
+		this.addTab(("Canvas" + newTabCounter), new JPanel());
+		newTabCounter++;
 	}
 	
 	public int getCanvasWidth() {

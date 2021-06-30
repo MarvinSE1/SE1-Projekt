@@ -1,7 +1,7 @@
 package GUI;
 
 import java.awt.*;
-
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class MainWindowGUI extends JFrame {
@@ -91,6 +91,9 @@ public class MainWindowGUI extends JFrame {
 	
 	public Canvas getCanvas() {
 		return canvas;
+	}
+	void addNewCanvasButtonListener(ActionListener listenForButton) {
+		this.getTopPanel().getNewButton().addActionListener(listenForButton);
 	}
 	
 	

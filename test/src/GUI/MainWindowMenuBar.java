@@ -31,10 +31,12 @@ public class MainWindowMenuBar extends JMenuBar {
 		help.setFont(sansSerif);
 		this.add(help);
 		
+		JMenuItem newCanvas = new JMenuItem("New");
 		JMenuItem load = new JMenuItem("Load");
 		JMenuItem save = new JMenuItem("Save");
 		JMenuItem exit = new JMenuItem("Exit");
 		
+		file.add(newCanvas);
 		file.add(load);
 		file.add(save);
 		file.add(exit);

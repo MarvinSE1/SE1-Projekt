@@ -10,15 +10,36 @@ import javax.swing.border.LineBorder;
 
 public class TopMenuPanel extends JPanel{
 
+	private JButton newCanvasPanel;
+	private JButton save;
+	private JButton runSimulation;
+	
+	
 	public TopMenuPanel() {
 		
 		setPreferredSize(new Dimension(100,40));
 		setLayout(new FlowLayout(FlowLayout.LEADING));
 		this.setBorder(new LineBorder(new Color(0x353535)));
 		
-		add(new JButton("New"));
-		add(new JButton("Save"));
-		add(new JButton("Run Simulation"));
+		this.newCanvasPanel = new JButton("New Circuit Panel");
+		this.save = new JButton("Save");
+		this.runSimulation = new JButton("Run Simulation");
+			
+		add(newCanvasPanel);
+		add(save);
+		add(runSimulation);
 		
+	}
+	
+	JButton getNewButton() {
+		return newCanvasPanel;
+	}
+	
+	JButton getSaveButton() {
+		return save;
+	}
+	
+	JButton getSimulationButton() {
+		return runSimulation;
 	}
 }
