@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 public class Switch extends Component implements ActionListener {
 
 	private JButton switchButton;
+	private Connection outputConnection;
 
 	public Switch() {
 		output = new ComponentOutput();
@@ -20,7 +21,7 @@ public class Switch extends Component implements ActionListener {
 		add(switchButton);
 		add(output);
 		switchButton.addActionListener(this);
-
+		outputConnection = null;
 	}
 
 	public void paint(Graphics g) {
@@ -40,11 +41,13 @@ public class Switch extends Component implements ActionListener {
 
 	public void turnSwitchOff() {
 		output.setValue(false);
+		outputConnection.calculateValue();
 		setBackground(Color.GRAY);
 	}
 
 	public void turnSwitchOn() {
 		output.setValue(true);
+		outputConnection.calculateValue();
 		setBackground(Color.ORANGE);
 	}
 
@@ -54,6 +57,10 @@ public class Switch extends Component implements ActionListener {
 
 	public ComponentOutput getOutput() {
 		return output;
+	}
+
+	public void linkToConnection(Connection conn) {
+		outputConnection = conn;
 	}
 
 	public static void main(String[] args) {

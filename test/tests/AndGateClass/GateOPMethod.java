@@ -26,14 +26,14 @@ public class GateOPMethod {
 	public void operationValueWithOneInputTrue() throws Exception {
 		AndGate a = new AndGate();
 		a.setAllForTests(false);
-		a.setValue(true);
+		a.setSpecific(0, true);
 		assertEquals(false, a.gateOP());
 	}
 
 	public void operationValueWithOneInputFalse() throws Exception {
 		AndGate a = new AndGate();
 		a.setAllForTests(true);
-		a.setValue(false);
+		a.setSpecific(0, false);
 		assertEquals(false, a.gateOP());
 	}
 
