@@ -15,7 +15,7 @@ public class OutputLayer extends JPanel {
         setLayout(new GridLayout(1,3,5,5));
         JButton lamp=new JButton("Lamp");
         this.lamp=lamp;
-        add(lamp,0,2);
+        add(lamp);
 
 }
 
