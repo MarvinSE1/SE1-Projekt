@@ -32,6 +32,14 @@ public class AndGate extends Gate {
 		input[index].setValue(conn.getValue());
 	}
 
+	public void linkInput(int index, Switch s) {
+//		ComponentInput temp = new ComponentInput();
+//		temp.setValue(s.getValueSwitch());
+//		input[index] = temp;
+
+		input[index].setValue(s.getValueSwitch());
+	}
+
 	public void actualiseOutput() {
 		output.setValue(gateOP());
 	}
