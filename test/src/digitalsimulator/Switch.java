@@ -40,14 +40,16 @@ public class Switch extends Component implements ActionListener {
 
 	public void turnSwitchOff() {
 		output.setValue(false);
-		outputConnection.calculateValue();
 		setBackground(Color.GRAY);
+		//outputConnection.calculateValue();
+		
 	}
 
 	public void turnSwitchOn() {
 		output.setValue(true);
-		outputConnection.calculateValue();
 		setBackground(Color.ORANGE);
+		//outputConnection.calculateValue();
+		
 	}
 
 	public boolean getValueSwitch() {

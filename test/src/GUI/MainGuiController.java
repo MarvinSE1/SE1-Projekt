@@ -11,6 +11,7 @@ import java.awt.event.WindowListener;
 
 import javax.swing.*;
 
+import digitalsimulator.Switch;
 import runProgramm.runSim;
 
 public class MainGuiController implements ActionListener, KeyListener, WindowListener, MouseMotionListener {
@@ -55,11 +56,11 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 //		this.input.addActionListener(this);
 //		this.output.addActionListener(this);
 //		this.custom.addActionListener(this);
-//		this.lever.addActionListener(this);
-//		this.lamp.addActionListener(this);
-//		this.or.addActionListener(this);
-//		this.and.addActionListener(this);
-//		this.not.addActionListener(this);
+		lever.addActionListener(e -> canvas.addComponent(new Switch()));
+		this.lamp.addActionListener(this);
+		this.or.addActionListener(this);
+		this.and.addActionListener(this);
+		this.not.addActionListener(this);
 //		this.plus.addActionListener(this);
 //		this.canvas.addMouseMotionListener(this);
 //		this.DragDrop.addMouseMotionListener(this);
@@ -140,7 +141,6 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
