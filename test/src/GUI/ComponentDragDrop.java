@@ -12,92 +12,77 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-public class ComponentDragDrop extends JPanel  {
-    private InputLayer input;
-    private OutputLayer output;
-    private GateLayer gate;
-    private CustomLayer custom;
-    private CardLayout card;
-   private JPanel empty=new JPanel();
+public class ComponentDragDrop extends JLayeredPane {
 
- 
-   
-    public ComponentDragDrop(){
-    	this.card=new CardLayout(40,30);
-    	this.input = new InputLayer();
-	    this.output= new OutputLayer();
-        this.gate= new GateLayer();
-        this.custom=new CustomLayer();
-    	this.setPreferredSize(new Dimension(100,200));
-    	this.setBorder(new LineBorder(new Color(0x353535)));
-    	
-    
-        
-        this.setLayout(card);
-        
-      
-        
-        this.add(empty,"empty");
-        this.add(input,"input");
-        this.add(output,"output");
-        this.add(gate,"gate");
-        this.add(custom,"custom");
-        card.show(this, "empty");
+	private InputLayer input;
+	private OutputLayer output;
+	private GateLayer gate;
+	private CustomLayer custom;
 
-      
+	public ComponentDragDrop() {
 
-    }
-public static void main(String[] args) {
-	JFrame frame=new JFrame();
-	frame.setSize(200,300);
-	ComponentDragDrop cdd=new ComponentDragDrop();
-	frame.add(cdd);
-	frame.setVisible(true);
-	
-}
+		this.setLayout(new CardLayout());
+		this.setPreferredSize(new Dimension(100, 200));
+		this.setBorder(new LineBorder(new Color(0x353535)));
 
+		this.input = new InputLayer();
+		this.output = new OutputLayer();
+		this.gate = new GateLayer();
+		this.custom = new CustomLayer();
 
-    void setInput() {
-        this.card.show(this, "input");
+		this.add(input, "input");
+		this.add(output, "output");
+		this.add(gate, "gate");
+		this.add(custom, "custom");
 
+	}
 
-    }
-    void setOutput() {
-    	this.card.show(this, "output");
+	public void setInputPanelActive() {
+		this.removeAll();
+		this.add(input);
+		this.repaint();
+		this.revalidate();
+	}
 
+	public void setOutputPanelActive() {
+		this.removeAll();
+		this.add(output);
+		this.repaint();
+		this.revalidate();
+	}
 
-    }
-    void setGate() {
-    	this.card.show(this, "gate");
+	public void setGatePanelActive() {
+		this.removeAll();
+		this.add(gate);
+		this.repaint();
+		this.revalidate();
+	}
 
+	public void setCustomPanelActive() {
+		this.removeAll();
+		this.add(custom);
+		this.repaint();
+		this.revalidate();
+	}
 
-    }
-    void setCustom() {
-    	this.card.show(this, "custom");
+	InputLayer getInput() {
+		return this.input;
 
+	}
 
-    }
+	OutputLayer getOutput() {
+		return this.output;
 
-    InputLayer getInput() {
-        return this.input;
+	}
 
+	GateLayer getGate() {
+		return this.gate;
 
-    }
-    OutputLayer getOutput() {
-    return      this.output;
+	}
 
+	CustomLayer getCustom() {
+		return this.custom;
 
-    }
-    GateLayer getGate() {
-        return this.gate;
-
-
-    }
-    CustomLayer getCustom() {
-        return this.custom;
-
-
-    }
-	
+	}
 
 }
