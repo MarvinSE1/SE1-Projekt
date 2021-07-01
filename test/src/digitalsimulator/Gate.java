@@ -136,6 +136,14 @@ public class Gate extends Component {
 		return input.length;
 	}
 
+	public void linkInput(int index, Connection connection) {
+		inputConnection[index] = connection;
+	}
+
+	public void linkOutput(Connection connection) {
+		outputConnection = connection;
+	}
+
 	public boolean gateOP() {
 		return (Boolean) null;
 	}

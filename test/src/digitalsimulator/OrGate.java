@@ -19,6 +19,23 @@ public class OrGate extends Gate {
 		return false;
 	}
 
+	public boolean gateOPv2() {
+		for (int i = 0; i < inputConnection.length; i++) {
+			if (inputConnection[i] == null) {
+				return false;
+			}
+
+			inputConnection[i].calculateValue();
+
+			if (inputConnection[i].getValue() == true) {
+				return true;
+			}
+
+		}
+
+		return false;
+	}
+
 	public void setValue(boolean val) {
 		input[0].setValue(val);
 	}

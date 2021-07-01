@@ -9,13 +9,13 @@ public class Connection {
 	public Connection(AndGate gateOutput) {
 		connectionInputv3 = gateOutput;
 		value = connectionInputv3.gateOPv2();
-		gateOutput.linkToConnection(this);
+		gateOutput.linkOutput(this);
 	}
 
 	public Connection(Switch switchOutput) {
 		connectionInputv2 = switchOutput;
 		value = connectionInputv2.getValueSwitch();
-		switchOutput.linkToConnection(this);
+		switchOutput.linkOutput(this);
 	}
 
 	public boolean getValue() {

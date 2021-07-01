@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 public class Switch extends Component implements ActionListener {
 
 	private JButton switchButton;
-	private Connection outputConnection;
 
 	public Switch() {
 		output = new ComponentOutput();
@@ -59,8 +58,8 @@ public class Switch extends Component implements ActionListener {
 		return output;
 	}
 
-	public void linkToConnection(Connection conn) {
-		outputConnection = conn;
+	public void linkOutput(Connection connection) {
+		outputConnection = connection;
 	}
 
 	public static void main(String[] args) {
