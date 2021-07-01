@@ -40,6 +40,8 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 		this.not = DragDrop.getGate().getNotGate();
 		this.plus = canvas.getPlus();
 
+		this.guiMainWindow.addNewCanvasButtonListener(new CanvasButtonListener());
+		
 //		this.gate.addActionListener(this);
 //		this.input.addActionListener(this);
 //		this.output.addActionListener(this);
@@ -53,7 +55,7 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 //		this.canvas.addMouseMotionListener(this);
 //		this.DragDrop.addMouseMotionListener(this);
 
-		this.guiMainWindow.addNewCanvasButtonListener(new CanvasButtonListener());
+		
 		
 	}
 

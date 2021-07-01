@@ -12,7 +12,7 @@ public class runSim {
 		view = new MainWindowGUI();
 		MainGuiController controller=new MainGuiController(view);
 //		guiLogic Logic = new guiLogic();
-//				
+				
 //		guiController Controller = new guiController(View,Logic);
 	}
 	

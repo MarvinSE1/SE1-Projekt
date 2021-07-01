@@ -74,6 +74,10 @@ public class MainWindowGUI extends JFrame {
 		this.setVisible(true);
 	}
 	
+	void addNewCanvasButtonListener(ActionListener listenForButton) {
+		this.getTopPanel().getNewButton().addActionListener(listenForButton);
+	}
+	
 	public MainWindowMenuBar getMainMenuBar() {
 		return mainWindow;
 	}
@@ -92,9 +96,6 @@ public class MainWindowGUI extends JFrame {
 	
 	public Canvas getCanvas() {
 		return canvas;
-	}
-	void addNewCanvasButtonListener(ActionListener listenForButton) {
-		this.getTopPanel().getNewButton().addActionListener(listenForButton);
 	}
 	
 	

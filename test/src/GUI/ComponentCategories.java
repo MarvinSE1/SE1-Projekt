@@ -8,7 +8,8 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 public class ComponentCategories extends JPanel{
-    JButton gate,custom,input,output;
+    
+	JButton gate,custom,input,output;
 
     public ComponentCategories(){
 

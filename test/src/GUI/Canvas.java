@@ -10,7 +10,7 @@ import javax.swing.border.LineBorder;
 import digitalsimulator.AndGate;
 
 public class Canvas extends JTabbedPane {
-//
+
 	private JButton plus;
 	private int newTabCounter;
 	
