@@ -30,9 +30,9 @@ public class ComponentDragDrop extends JLayeredPane {
 		this.gate = new GateLayer();
 		this.custom = new CustomLayer();
 
+		this.add(gate, "gate");
 		this.add(input, "input");
 		this.add(output, "output");
-		this.add(gate, "gate");
 		this.add(custom, "custom");
 
 	}

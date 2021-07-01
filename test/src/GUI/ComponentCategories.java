@@ -30,10 +30,10 @@ public class ComponentCategories extends JPanel {
 		this.custom = new JButton("Custom");
 		bg.add(custom);
 
-		add(gate, 0, 0);
-		add(input, 1, 0);
-		add(output, 2, 0);
-		add(custom, 3, 0);
+		add(custom, 0, 0);
+		add(output, 1, 0);
+		add(input, 2, 0);
+		add(gate, 3, 0);
 
 		this.setVisible(true);
 

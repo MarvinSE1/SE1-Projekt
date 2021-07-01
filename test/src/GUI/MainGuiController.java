@@ -40,15 +40,17 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 		this.not = DragDrop.getGate().getNotGate();
 
 		
-		// TopMenuPanel Buttons
-		this.guiMainWindow.addNewCanvasButtonListener(new CanvasButtonListener());
+		// TopMenuPanel ActionListeners
+			
+		this.guiMainWindow.getTopPanel().getNewButton().addActionListener(e -> canvas.addElement());
 		
-		// ComponentCategories Buttons
-		this.guiMainWindow.addInputPanelButtonListener(new InputPanelButtonListener());
-		this.guiMainWindow.addOutputPanelButtonListener(new OutputPanelButtonListener());
-		this.guiMainWindow.addGatePanelButtonListener(new GatePanelButtonListener());
-		this.guiMainWindow.addCustomPanelButtonListener(new CustomPanelButtonListener());
+		// ComponentCategories ActionListeners
 		
+		this.categoryPanel.getGateButton().addActionListener(e -> DragDrop.setGatePanelActive());
+		this.categoryPanel.getInputButton().addActionListener(e -> DragDrop.setInputPanelActive());
+		this.categoryPanel.getOutputButton().addActionListener(e -> DragDrop.setOutputPanelActive());
+		this.categoryPanel.getCustomButton().addActionListener(e -> DragDrop.setCustomPanelActive());
+
 //		this.gate.addActionListener(this);
 //		this.input.addActionListener(this);
 //		this.output.addActionListener(this);
@@ -62,57 +64,7 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 //		this.canvas.addMouseMotionListener(this);
 //		this.DragDrop.addMouseMotionListener(this);
 
-		
-		
-	}
-	//ComponentCategories ActionListeners
-	class InputPanelButtonListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			DragDrop.setInputPanelActive();
-			
-		}
-		
-	}
-	class OutputPanelButtonListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			DragDrop.setOutputPanelActive();
-			
-		}
-		
-	}
-	class GatePanelButtonListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			DragDrop.setGatePanelActive();
-			
-		}
-		
-	}
-	class CustomPanelButtonListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			DragDrop.setCustomPanelActive();
-			
-		}
-		
-	}
-	
-	// TopMenuPanel ActionListeners
-	class CanvasButtonListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			canvas.addElement();
-			
-		}
-		
-	}
+	}	
 	
 	@Override
 	public void windowActivated(WindowEvent arg0) {

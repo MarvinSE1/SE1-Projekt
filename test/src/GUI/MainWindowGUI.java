@@ -74,26 +74,6 @@ public class MainWindowGUI extends JFrame {
 		this.setVisible(true);
 	}
 	
-	//TopMenuPanel ActionListeners
-	void addNewCanvasButtonListener(ActionListener listenForButton) {
-		this.getTopPanel().getNewButton().addActionListener(listenForButton);
-	}
-	
-	//ComponentCategories ActionListeners
-	void addInputPanelButtonListener(ActionListener listenForButton) {
-		this.getComponentCategories().getInputButton().addActionListener(listenForButton);
-	}
-	void addOutputPanelButtonListener(ActionListener listenForButton) {
-		this.getComponentCategories().getOutputButton().addActionListener(listenForButton);
-	}
-	void addGatePanelButtonListener(ActionListener listenForButton) {
-		this.getComponentCategories().getGateButton().addActionListener(listenForButton);
-	}
-	void addCustomPanelButtonListener(ActionListener listenForButton) {
-		this.getComponentCategories().getCustomButton().addActionListener(listenForButton);
-	}
-	
-	
 	public MainWindowMenuBar getMainMenuBar() {
 		return mainWindow;
 	}
