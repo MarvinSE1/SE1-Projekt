@@ -4,18 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
-public class Switch extends Component implements ActionListener{
+public class Switch extends Component implements ActionListener {
 
 	private JButton switchButton;
-	
 
 	public Switch() {
 		output = new ComponentOutput();
@@ -25,19 +20,19 @@ public class Switch extends Component implements ActionListener{
 		add(switchButton);
 		add(output);
 		switchButton.addActionListener(this);
-		
+		outputConnection = null;
 	}
 
 	public void paint(Graphics g) {
 		super.paint(g);
 		g.setColor(getBackground());
-		g.fillRect(getPositionX(),getPositionY(),getWidth(),getHeigth());
-		g.setColor(new Color(230,239,255));
-		g.fillRect(30,30,40,40);
-		g.fillRect(79,40,20,20);
+		g.fillRect(getPositionX(), getPositionY(), getWidth(), getHeigth());
+		g.setColor(new Color(230, 239, 255));
+		g.fillRect(30, 30, 40, 40);
+		g.fillRect(79, 40, 20, 20);
 		g.setColor(Color.LIGHT_GRAY);
-		g.drawRect(30,30,39,39);
-		g.drawRect(79,40,19,19);
+		g.drawRect(30, 30, 39, 39);
+		g.drawRect(79, 40, 19, 19);
 		g.setColor(Color.black);
 		g.drawString("Switch", 33, 21);
 		g.drawRect(getPositionX(), getPositionY(), getWidth() - 1, getHeigth() - 1);
@@ -45,16 +40,26 @@ public class Switch extends Component implements ActionListener{
 
 	public void turnSwitchOff() {
 		output.setValue(false);
+		outputConnection.calculateValue();
 		setBackground(Color.GRAY);
 	}
 
 	public void turnSwitchOn() {
 		output.setValue(true);
+		outputConnection.calculateValue();
 		setBackground(Color.ORANGE);
 	}
 
 	public boolean getValueSwitch() {
 		return output.getValue();
+	}
+
+	public ComponentOutput getOutput() {
+		return output;
+	}
+
+	public void linkOutput(Connection connection) {
+		outputConnection = connection;
 	}
 
 	public static void main(String[] args) {
@@ -71,11 +76,10 @@ public class Switch extends Component implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(output.getValue())
+		if (output.getValue())
 			turnSwitchOff();
 		else
 			turnSwitchOn();
 	}
 
-	
 }

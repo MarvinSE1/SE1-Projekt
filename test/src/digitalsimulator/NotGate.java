@@ -19,6 +19,13 @@ public class NotGate extends Gate {
 			return true;
 	}
 
+	public boolean gateOPv2() {
+		if (inputConnection[0].getValue() == true)
+			return false;
+		else
+			return true;
+	}
+
 	public void setValue(boolean val) {
 		input[0].setValue(val);
 	}

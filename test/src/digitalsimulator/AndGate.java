@@ -10,6 +10,8 @@ public class AndGate extends Gate {
 		output = new ComponentOutput();
 		output.setBounds(79, 40, 20, 20);
 		add(output);
+		inputConnection = new Connection[input.length];
+		outputConnection = null;
 	}
 
 	public boolean gateOP() {
@@ -19,21 +21,34 @@ public class AndGate extends Gate {
 		return true;
 	}
 
-	public void setValue(boolean val) {
-		input[0].setValue(val);
+	public boolean gateOPv2() {
+		for (int i = 0; i < inputConnection.length; i++) {
+			if (inputConnection[i] == null) {
+				return false;
+			}
+
+			inputConnection[i].calculateValue();
+
+			if (inputConnection[i].getValue() == false) {
+				return false;
+			}
+
+		}
+
+		return true;
 	}
+
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.setColor(Color.black);
+		g.drawString("And", 40, 21);
+	}
+
+	// Testmethoden
 
 	public void setSpecific(int index, boolean val) {
 		input[index].setValue(val);
 		actualiseOutput();
-	}
-
-	public void linkInput(int index, Connection conn) {
-		input[index].setValue(conn.getValue());
-	}
-
-	public void actualiseOutput() {
-		output.setValue(gateOP());
 	}
 
 	public void setAllForTests(boolean val) {
@@ -42,14 +57,8 @@ public class AndGate extends Gate {
 		}
 	}
 
-	public ComponentOutput getOutput() {
-		return output;
-	}
-
-	public void paint(Graphics g) {
-		super.paint(g);
-		g.setColor(Color.black);
-		g.drawString("And", 40, 21);
+	public void actualiseOutput() {
+		output.setValue(gateOP());
 	}
 
 }

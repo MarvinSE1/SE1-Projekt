@@ -3,28 +3,35 @@ package digitalsimulator;
 public class Connection {
 
 	boolean value;
-	ComponentInput input;
-	ComponentOutput output;
+	Switch connectionInputv2;
+	AndGate connectionInputv3;
 
-	public Connection(ComponentOutput newOutput) {
-		output = newOutput;
-		value = output.getValue();
+	public Connection(AndGate gateOutput) {
+		connectionInputv3 = gateOutput;
+		value = connectionInputv3.gateOPv2();
+		gateOutput.linkOutput(this);
+	}
+
+	public Connection(Switch switchOutput) {
+		connectionInputv2 = switchOutput;
+		value = connectionInputv2.getValueSwitch();
+		switchOutput.linkOutput(this);
 	}
 
 	public boolean getValue() {
 		return this.value;
 	}
 
-	public void initialiseOutput(ComponentInput newInput) {
-		input = newInput;
-	}
-
-	public ComponentInput getConnection() {
-		return input;
-	}
-
 	public void calculateValue() {
-		value = output.getValue();
+
+		if (connectionInputv2 != null) {
+			value = connectionInputv2.getValueSwitch();
+		}
+
+		if (connectionInputv3 != null) {
+			value = connectionInputv3.gateOPv2();
+		}
+
 	}
 
 }
