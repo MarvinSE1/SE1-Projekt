@@ -60,11 +60,11 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 //		this.input.addActionListener(this);
 //		this.output.addActionListener(this);
 //		this.custom.addActionListener(this);
-		lever.addActionListener(e -> canvas.addComponent(new Switch()));
-		this.lamp.addActionListener(e -> canvas.addComponent(new Lamp()));
-		this.or.addActionListener(e -> canvas.addComponent(new OrGate()));
-		this.and.addActionListener(e -> canvas.addComponent(new AndGate()));
-		this.not.addActionListener(e -> canvas.addComponent(new NotGate()));
+		lever.addActionListener(this);
+		this.lamp.addActionListener(this);
+		this.or.addActionListener(this);
+		this.and.addActionListener(this);
+		this.not.addActionListener(this);
 //		this.plus.addActionListener(this);
 //		this.canvas.addMouseMotionListener(this);
 //		this.DragDrop.addMouseMotionListener(this);
@@ -145,7 +145,31 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+		if(e.getSource() == lever) {
+			Switch a = new Switch();
+			canvas.addComponent(a);
+			a.setPosition(1, 1, a);
+		}
+		if(e.getSource() == or) {
+			OrGate a = new OrGate();
+			canvas.addComponent(a);
+			a.setPosition(1, 1, a);
+		}
+		if(e.getSource() == and) {
+			AndGate a = new AndGate();
+			canvas.addComponent(a);
+			a.setPosition(1, 1, a);
+		}
+		if(e.getSource() == not) {
+			NotGate a = new NotGate();
+			canvas.addComponent(a);
+			a.setPosition(1, 1, a);
+		}
+		if(e.getSource() == lamp) {
+			Lamp a = new Lamp();
+			canvas.addComponent(a);
+			a.setPosition(1, 1, a);
+		}
 	}
 
 }
