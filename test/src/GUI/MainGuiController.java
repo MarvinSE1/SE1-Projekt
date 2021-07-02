@@ -11,6 +11,10 @@ import java.awt.event.WindowListener;
 
 import javax.swing.*;
 
+import digitalsimulator.AndGate;
+import digitalsimulator.Lamp;
+import digitalsimulator.NotGate;
+import digitalsimulator.OrGate;
 import digitalsimulator.Switch;
 import runProgramm.runSim;
 
@@ -57,10 +61,10 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 //		this.output.addActionListener(this);
 //		this.custom.addActionListener(this);
 		lever.addActionListener(e -> canvas.addComponent(new Switch()));
-		this.lamp.addActionListener(this);
-		this.or.addActionListener(this);
-		this.and.addActionListener(this);
-		this.not.addActionListener(this);
+		this.lamp.addActionListener(e -> canvas.addComponent(new Lamp()));
+		this.or.addActionListener(e -> canvas.addComponent(new OrGate()));
+		this.and.addActionListener(e -> canvas.addComponent(new AndGate()));
+		this.not.addActionListener(e -> canvas.addComponent(new NotGate()));
 //		this.plus.addActionListener(this);
 //		this.canvas.addMouseMotionListener(this);
 //		this.DragDrop.addMouseMotionListener(this);
