@@ -60,7 +60,7 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 //		this.input.addActionListener(this);
 //		this.output.addActionListener(this);
 //		this.custom.addActionListener(this);
-		lever.addActionListener(this);
+		this.lever.addActionListener(this);
 		this.lamp.addActionListener(this);
 		this.or.addActionListener(this);
 		this.and.addActionListener(this);
