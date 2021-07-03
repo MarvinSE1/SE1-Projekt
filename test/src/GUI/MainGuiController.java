@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -18,7 +19,7 @@ import digitalsimulator.OrGate;
 import digitalsimulator.Switch;
 import runProgramm.runSim;
 
-public class MainGuiController implements ActionListener, KeyListener, WindowListener, MouseMotionListener {
+public class MainGuiController implements ActionListener, KeyListener, WindowListener, MouseMotionListener, MouseListener {
 
 	private static MainWindowGUI guiMainWindow;
 	private ComponentCategories categoryPanel;
@@ -26,6 +27,7 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 	private Canvas canvas;
 	private ComponentDragDrop DragDrop;
 	private JButton gate, input, output, custom, lever, lamp, or, and, not, plus;
+	private Lamp a;
 
 	public MainGuiController(MainWindowGUI mainWindow) {
 		
@@ -66,7 +68,8 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 		this.and.addActionListener(this);
 		this.not.addActionListener(this);
 //		this.plus.addActionListener(this);
-//		this.canvas.addMouseMotionListener(this);
+		this.canvas.addMouseMotionListener(this);
+		this.canvas.addMouseListener(this);
 //		this.DragDrop.addMouseMotionListener(this);
 
 	}	
@@ -166,10 +169,44 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 			a.setPosition(1, 1, a);
 		}
 		if(e.getSource() == lamp) {
-			Lamp a = new Lamp();
+			this.a = new Lamp();
 			canvas.addComponent(a);
 			a.setPosition(1, 1, a);
 		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if (SwingUtilities.isRightMouseButton(e) && e.getClickCount() == 1 ) {
+			if( canvas.getSelectedComponent() == new Lamp())
+				System.out.println("heso");
+			System.out.println("Rechtsklick");
+		}
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

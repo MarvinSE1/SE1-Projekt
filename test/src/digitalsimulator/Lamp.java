@@ -2,10 +2,21 @@ package digitalsimulator;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
-public class Lamp extends Component {
+public class Lamp extends Gate {
+	
+	private JPopupMenu pm;
+	private JMenuItem mi;
+	private JTextField tf;
 
 	public Lamp() {
 		// super();
@@ -51,15 +62,30 @@ public class Lamp extends Component {
 		return inputConnection[0];
 	}
 
-	public static void main(String[] args) {
-		JFrame test = new JFrame("t");
-		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		test.setVisible(true);
-		test.setSize(500, 500);
-		Lamp t = new Lamp();
-		Component t2 = new Component();
-		test.add(t);
-		test.add(t2);
-		// t.lampOn();
+	public void mouseClicked(MouseEvent e) {
+		if (SwingUtilities.isRightMouseButton(e) && e.getClickCount() == 1) {
+			pm = new JPopupMenu();
+			mi = new JMenuItem();
+			
+			JMenuItem item = new JMenuItem("löschen");
+			add(pm);
+			
+			pm.add(item);
+			//item.setVisible(true);
+			pm.setVisible(true);
+			pm.show(this,e.getX(),e.getY());
+			
+			item.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+				}
+
+			});
+
+		}
+		
 	}
+	
+	
 }

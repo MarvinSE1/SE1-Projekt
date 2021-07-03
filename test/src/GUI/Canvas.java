@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -13,12 +14,14 @@ import javax.swing.border.LineBorder;
 
 import digitalsimulator.AndGate;
 import digitalsimulator.Component;
+import digitalsimulator.ComponentInput;
 
 public class Canvas extends JTabbedPane {
 
 	private JButton plus;
 	private int newTabCounter;
 	private JPanel panel;
+	private ComponentInput input;
 
 	//private AbstracPanel[] panel = new AbstracPanel[size];
 	
@@ -34,6 +37,7 @@ public class Canvas extends JTabbedPane {
 		addElement();
 		
 	}
+	
 	
 	void addElement() {
 		panel = new JPanel();
@@ -62,6 +66,25 @@ public class Canvas extends JTabbedPane {
 //		}
 //		panel = newPanel;
 //	}
+	public void setMousePositionX(){
+		
+	}
+	public void setMousePositionY(){
+		
+	}
+	
+	void drawLines(Graphics g) {
+
+		//g.drawLine(getInputPosX(), getInputPosY(), eventx, eventy);
+
+	}
+	
+	 public void paint(Graphics g) {
+		 super.paint(g);
+		 drawLines(g); 
+		 
+	 }
+	 
 	
 	public int getCanvasWidth() {
 		return 1;

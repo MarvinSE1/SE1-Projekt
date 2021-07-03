@@ -1,15 +1,39 @@
 package digitalsimulator;
 
+
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.MenuItem;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class Gate extends Component {
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
+
+import GUI.MainWindowGUI;
+import runProgramm.runSim;
+import GUI.Canvas;
+
+public class Gate extends Component implements MouseListener {
 
 	private boolean draw = false;
+	private JPopupMenu pm;
+	private JMenuItem mi;
+	private JTextField tf;
 //	private int posX;
 //	private int posY;
+	private Canvas canvas;
+	private MainWindowGUI guiMainWindow;
 
 	public Gate() {
+		guiMainWindow = runSim.getMainWindow();
+		canvas = guiMainWindow.getCanvas();
 		output = new ComponentOutput();
 		output.setBounds(79, 40, 20, 20);
 		add(output);
@@ -17,6 +41,7 @@ public class Gate extends Component {
 		output.insertOutput(); // in Vector aller outputs eintragen
 		output.setGate(this);
 		outputConnection = new Connection(this);
+		addMouseListener(this);
 	}
 
 	public void paint(Graphics g) {
@@ -110,7 +135,7 @@ public class Gate extends Component {
 				// input[i].getDraw();
 
 				System.out.println(input[i].getDraw());
-				this.setDraw(input[i].getDraw());
+				//this.setDraw(input[i].getDraw());
 				if (amount == 1) {
 					input[i].setBounds(0, 40, 20, 20);
 					// input[i].setInputPos(0,40);
@@ -167,6 +192,74 @@ public class Gate extends Component {
 
 	public boolean gateOPv2() {
 		return (Boolean) null;
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if (SwingUtilities.isRightMouseButton(e) && e.getClickCount() == 1) {
+			pm = new JPopupMenu();
+			mi = new JMenuItem();
+			JMenuItem item = new JMenuItem("Input Größe ändern");
+			JMenuItem item2 = new JMenuItem("löschen");
+			add(pm);
+			pm.add(item);
+			pm.add(item2);
+			//item.setVisible(true);
+			pm.setVisible(true);
+			pm.show(this,e.getX(),e.getY());
+			//int a = Integer.parseInt(tf.getText());
+			//changeNumberOfInputs(a);
+			item.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					System.out.println("sad");
+					JOptionPane input = new JOptionPane();
+					tf = new JTextField();
+					input.showMessageDialog(null,tf);
+					//getGate().add(input);
+					int a = Integer.parseInt(tf.getText());
+					if(a >= 2)
+						setInputs(a);
+					setPosition(getGate().getPositionX(),getGate().getPositionY(),getGate());
+				}
+
+				
+			});
+			item2.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					canvas.remove(getGate());
+				}
+
+				
+			});
+			
+		}
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

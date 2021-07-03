@@ -178,5 +178,6 @@ public class Component extends JComponent {
 		test.add(t5);
 		test.add(t6);
 		t.setPosition(100, 100, t);
+		
 	}
 }

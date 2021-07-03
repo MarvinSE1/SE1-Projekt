@@ -2,8 +2,21 @@ package digitalsimulator;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
+import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 public class NotGate extends Gate {
+	
+	private JPopupMenu pm;
+	private JMenuItem mi;
+	private JTextField tf;
 
 	public NotGate() {
 		setInputs(1);
@@ -39,4 +52,29 @@ public class NotGate extends Gate {
 		g.drawString("Not", 40, 21);
 	}
 
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if (SwingUtilities.isRightMouseButton(e) && e.getClickCount() == 1) {
+			pm = new JPopupMenu();
+			mi = new JMenuItem();
+			
+			JMenuItem item = new JMenuItem("löschen");
+			add(pm);
+			
+			pm.add(item);
+			//item.setVisible(true);
+			pm.setVisible(true);
+			pm.show(this,e.getX(),e.getY());
+			
+			item.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+				}
+
+			});
+
+		}
+		
+	}
 }
