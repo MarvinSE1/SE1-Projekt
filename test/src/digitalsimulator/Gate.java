@@ -121,7 +121,7 @@ public class Gate extends Component implements MouseListener {
 
 		if (amount >= 2) {
 			removeAll();
-			ComponentInput[] input2 = new ComponentInput[amount];
+			input = new ComponentInput[amount];
 
 			int abstand = 40;
 			setHeigth(100);
