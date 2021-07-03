@@ -114,8 +114,11 @@ public class ComponentInput extends JButton implements ActionListener {
 
 				} else if (out.getGate() != null && myLamp != null) {
 					System.out.println("connected");
-					out.getGate().getOutputConnection().setInputConnection(myLamp);
-					myLamp.setConnection(out.getGate().getOutputConnection());
+
+					if (myLamp.getConnection() == null) {
+						out.getGate().getOutputConnection().setInputConnection(myLamp);
+						myLamp.setConnection(out.getGate().getOutputConnection());
+					}
 				}
 
 				// draw zurücksetzen
