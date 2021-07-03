@@ -5,10 +5,8 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
@@ -68,7 +66,7 @@ public class Switch extends Gate implements ActionListener {
 		outputConnection.calculateValue();
 	}
 
-	public boolean getValueSwitch() {
+	public boolean gateOPv2() {
 		return output.getValue();
 	}
 
@@ -92,15 +90,15 @@ public class Switch extends Gate implements ActionListener {
 		if (SwingUtilities.isRightMouseButton(e) && e.getClickCount() == 1) {
 			pm = new JPopupMenu();
 			mi = new JMenuItem();
-			
+
 			JMenuItem item = new JMenuItem("löschen");
 			add(pm);
-			
+
 			pm.add(item);
-			//item.setVisible(true);
+			// item.setVisible(true);
 			pm.setVisible(true);
-			pm.show(this,e.getX(),e.getY());
-			
+			pm.show(this, e.getX(), e.getY());
+
 			item.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -111,8 +109,7 @@ public class Switch extends Gate implements ActionListener {
 			});
 
 		}
-		
-	}
 
+	}
 
 }

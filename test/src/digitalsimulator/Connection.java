@@ -9,37 +9,23 @@ public class Connection {
 	boolean value;
 
 	// je ein Attribut pro input / output möglichkeit
-	Switch connectionInputv1;
-	Gate connectionInputv2;
+	Gate connectionInput;
 
-	Lamp connectionOutputv1;
-	Gate connectionOutputv2;
+	Lamp lampConnection;
+	Gate gateConnection;
 
 	// im kosntruktor immer output übergeben
-	public Connection(Switch switchOutput) {
-		connectionInputv1 = switchOutput;
-		switchOutput.linkOutput(this);
-	}
-
 	public Connection(Gate gateOutput) {
-		connectionInputv2 = gateOutput;
+		connectionInput = gateOutput;
 		gateOutput.linkOutput(this);
 	}
 
 	// ebenfalls für jede mögliche kombination
 	public void paint(Graphics g) {
-		if (connectionInputv1 != null && connectionOutputv1 != null) {
-			g.drawLine(connectionInputv1.getX(), connectionInputv1.getY(), connectionOutputv1.getX(),
-					connectionOutputv1.getY());
-		} else if (connectionInputv2 != null && connectionOutputv1 != null) {
-			g.drawLine(connectionInputv2.getX(), connectionInputv2.getY(), connectionOutputv1.getX(),
-					connectionOutputv1.getY());
-		} else if (connectionInputv1 != null && connectionOutputv2 != null) {
-			g.drawLine(connectionInputv1.getX(), connectionInputv1.getY(), connectionOutputv2.getX(),
-					connectionOutputv2.getY());
-		} else if (connectionInputv2 != null && connectionOutputv2 != null) {
-			g.drawLine(connectionInputv2.getX(), connectionInputv2.getY(), connectionOutputv2.getX(),
-					connectionOutputv2.getY());
+		if (connectionInput != null && lampConnection != null) {
+			g.drawLine(connectionInput.getX(), connectionInput.getY(), lampConnection.getX(), lampConnection.getY());
+		} else if (connectionInput != null && gateConnection != null) {
+			g.drawLine(connectionInput.getX(), connectionInput.getY(), gateConnection.getX(), gateConnection.getY());
 		}
 	}
 
@@ -47,50 +33,44 @@ public class Connection {
 	// Fehler, wenn letzter output nicht erreicht
 	// kann man fixen, sollte aber sowiso nicht
 	public void calculateValue() {
-		if (connectionInputv1 != null) {
-			value = connectionInputv1.getValueSwitch();
-		} else if (connectionInputv2 != null) {
-			value = connectionInputv2.gateOPv2();
+		if (connectionInput != null) {
+			value = connectionInput.gateOPv2();
 		}
 
-		if (connectionOutputv1 != null) {
+		if (lampConnection != null) {
 			if (value) {
-				connectionOutputv1.lampOn();
+				lampConnection.lampOn();
 			} else {
-				connectionOutputv1.lampOff();
+				lampConnection.lampOff();
 			}
-		} else if (connectionOutputv2 != null) {
-			connectionOutputv2.gateOPv2();
-			connectionOutputv2.getOutputConnection().calculateValue();
+		} else if (gateConnection != null) {
+			gateConnection.gateOPv2();
+			gateConnection.getOutputConnection().calculateValue();
 		}
 	}
 
 	// für jede Art von inputKomponente
 	public void setInputConnection(Gate g) {
-		connectionOutputv2 = g;
+		gateConnection = g;
 
-		if (connectionInputv2 != null) {
-			value = connectionInputv2.gateOPv2();
-		} else if (connectionInputv1 != null) {
-			value = connectionInputv1.getValueSwitch();
+		if (connectionInput != null) {
+			value = connectionInput.gateOPv2();
 		}
 	}
 
 	public void setInputConnection(Lamp l) {
-		connectionOutputv1 = l;
+		lampConnection = l;
 
-		if (connectionInputv2 != null) {
-			value = connectionInputv2.gateOPv2();
-		} else if (connectionInputv1 != null) {
-			value = connectionInputv1.getValueSwitch();
+		if (connectionInput != null) {
+			value = connectionInput.gateOPv2();
 		}
 	}
 
 	// trennt verbindung zwischen 2 Komponenten
 	// besser gesagt, inputVerbidung wird
 	public void severInput() {
-		connectionOutputv1 = null;
-		connectionOutputv2 = null;
+		lampConnection = null;
+		gateConnection = null;
 	}
 
 	public boolean getValue() {
