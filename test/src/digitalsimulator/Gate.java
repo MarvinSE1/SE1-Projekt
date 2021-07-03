@@ -121,7 +121,7 @@ public class Gate extends Component implements MouseListener {
 
 		if (amount >= 2) {
 			removeAll();
-			input = new ComponentInput[amount];
+			ComponentInput[] input2 = new ComponentInput[amount];
 
 			int abstand = 40;
 			setHeigth(100);
@@ -178,6 +178,7 @@ public class Gate extends Component implements MouseListener {
 
 	public void linkInput(int index, Connection connection) {
 		inputConnection[index] = connection;
+		System.out.println("test");
 	}
 
 	public Connection getInputConnection(int index) {
