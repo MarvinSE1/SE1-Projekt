@@ -143,7 +143,7 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
-		// TODO Auto-generated method stub
+		
 
 	}
 

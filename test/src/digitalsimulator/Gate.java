@@ -20,8 +20,6 @@ public class Gate extends Component implements MouseListener {
 
 	private boolean draw = false;
 	private JPopupMenu pm;
-	private JMenuItem mi;
-	private JTextField tf;
 //	private int posX;
 //	private int posY;
 	private JPanel panel;
@@ -206,7 +204,7 @@ public class Gate extends Component implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		if (SwingUtilities.isRightMouseButton(e) && e.getClickCount() == 1) {
 			pm = new JPopupMenu();
-			mi = new JMenuItem();
+			
 			JMenuItem item = new JMenuItem("Input Größe ändern");
 			JMenuItem item2 = new JMenuItem("löschen");
 			add(pm);
@@ -222,10 +220,9 @@ public class Gate extends Component implements MouseListener {
 				public void actionPerformed(ActionEvent e) {
 					System.out.println("sad");
 					JOptionPane input = new JOptionPane();
-					tf = new JTextField();
-					input.showMessageDialog(null, tf);
-					// getGate().add(input);
-					int a = Integer.parseInt(tf.getText());
+					String inputValue = input.showInputDialog("Bitte Anzahl der Inputs eingeben: ");
+
+					int a = Integer.parseInt(inputValue);
 					if (a >= 2)
 						setInputs(a);
 					setPosition(getGate().getPositionX(), getGate().getPositionY(), getGate());
