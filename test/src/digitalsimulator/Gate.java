@@ -210,18 +210,13 @@ public class Gate extends Component implements MouseListener {
 			add(pm);
 			pm.add(item);
 			pm.add(item2);
-			// item.setVisible(true);
 			pm.setVisible(true);
 			pm.show(this, e.getX(), e.getY());
-			// int a = Integer.parseInt(tf.getText());
-			// changeNumberOfInputs(a);
 			item.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					System.out.println("sad");
 					JOptionPane input = new JOptionPane();
 					String inputValue = input.showInputDialog("Bitte Anzahl der Inputs eingeben: ");
-
 					int a = Integer.parseInt(inputValue);
 					if (a >= 2)
 						setInputs(a);
