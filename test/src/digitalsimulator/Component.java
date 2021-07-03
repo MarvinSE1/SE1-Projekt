@@ -87,8 +87,15 @@ public class Component extends JComponent {
 	}
 
 	public ComponentInput[] getInputArray() {
-
 		return input;
+	}
+
+	public void setOutputConnection(Connection connection) {
+		outputConnection = connection;
+	}
+
+	public Connection getOutputConnection() {
+		return outputConnection;
 	}
 
 	public class ComponentListener implements MouseMotionListener, MouseListener {

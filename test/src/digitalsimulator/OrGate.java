@@ -7,9 +7,15 @@ public class OrGate extends Gate {
 
 	public OrGate() {
 		setInputs(2);
-		// output = new ComponentOutput();
-		// output.setBounds(79, 40, 20, 20);
-		// add(output);
+		output = new ComponentOutput();
+		output.setBounds(79, 40, 20, 20);
+		add(output);
+
+		for (ComponentInput in : input) {
+			in.setGate(this);
+		}
+
+		inputConnection = new Connection[input.length];
 	}
 
 	public boolean gateOP() {
@@ -24,8 +30,6 @@ public class OrGate extends Gate {
 			if (inputConnection[i] == null) {
 				return false;
 			}
-
-			inputConnection[i].calculateValue();
 
 			if (inputConnection[i].getValue() == true) {
 				return true;

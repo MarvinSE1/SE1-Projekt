@@ -20,7 +20,10 @@ public class Switch extends Component implements ActionListener {
 		add(switchButton);
 		add(output);
 		switchButton.addActionListener(this);
-		outputConnection = null;
+		// output initialisieren
+		output.insertOutput();
+		output.setSwitch(this);
+		outputConnection = new Connection(this);
 	}
 
 	public void paint(Graphics g) {
@@ -41,15 +44,14 @@ public class Switch extends Component implements ActionListener {
 	public void turnSwitchOff() {
 		output.setValue(false);
 		setBackground(Color.GRAY);
-		//outputConnection.calculateValue();
-		
+		outputConnection.calculateValue();
+
 	}
 
 	public void turnSwitchOn() {
 		output.setValue(true);
 		setBackground(Color.ORANGE);
-		//outputConnection.calculateValue();
-		
+		outputConnection.calculateValue();
 	}
 
 	public boolean getValueSwitch() {
@@ -64,6 +66,14 @@ public class Switch extends Component implements ActionListener {
 		outputConnection = connection;
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (output.getValue())
+			turnSwitchOff();
+		else
+			turnSwitchOn();
+	}
+
 	public static void main(String[] args) {
 		JFrame test = new JFrame("t");
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,14 +84,6 @@ public class Switch extends Component implements ActionListener {
 		test.add(t);
 		test.add(t2);
 		t.turnSwitchOn();
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (output.getValue())
-			turnSwitchOff();
-		else
-			turnSwitchOn();
 	}
 
 }

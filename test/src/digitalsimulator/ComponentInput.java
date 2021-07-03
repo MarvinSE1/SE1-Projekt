@@ -13,6 +13,8 @@ public class ComponentInput extends JButton implements ActionListener {
 	private boolean draw = false;
 	private int posX;
 	private int posY;
+	private Gate myGate;
+	private Lamp myLamp;
 
 //	private int eventx;
 //	private int eventy;
@@ -21,6 +23,14 @@ public class ComponentInput extends JButton implements ActionListener {
 	public ComponentInput() {
 		addActionListener(this);
 
+	}
+
+	public void setLamp(Lamp l) {
+		myLamp = l;
+	}
+
+	public void setGate(Gate g) {
+		myGate = g;
 	}
 
 //	public void setInputArray(ComponentInput[] array) {
@@ -72,24 +82,86 @@ public class ComponentInput extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// if(e.getSource() == this)
-		System.out.println("gedrückt");
-		// for(int i = 0;i < length;i++) {
-		if (draw) {
+		boolean severConnection = true;
+		// Vector aller outputs holen
+		for (ComponentOutput out : new ComponentOutput().getList()) {
 
-			draw = false;
-			// System.out.println(draw);
-			// eventx = getInputPosX();
-			// eventy = getInputPosY();
-			// repaint();
-		} else {
+			// verbindung zum markierten output herstellen
+			if (out.getDraw()) {
+				severConnection = false;
 
-			draw = true;
-			// System.out.println(draw);
-			// System.out.println("gedrückt");
+				if (out.getSwitch() != null && myLamp != null) {
+					System.out.println("connected");
+					out.getSwitch().getOutputConnection().setInputConnection(myLamp);
+					myLamp.setConnection(out.getSwitch().getOutputConnection());
+				} else if (out.getSwitch() != null && myGate != null) {
+					System.out.println("connected");
+					out.getSwitch().getOutputConnection().setInputConnection(myGate);
+
+					// alle inputs durchgehen und Connection an richtigen index setzen
+					for (int i = 0; i < myGate.getInputAmount(); i++) {
+						if (this == myGate.getInput(i)) {
+							myGate.linkInput(i, out.getSwitch().getOutputConnection());
+						}
+					}
+
+				} else if (out.getGate() != null && myGate != null) {
+					System.out.println("connected");
+					out.getGate().getOutputConnection().setInputConnection(myGate);
+
+					// alle inputs durchgehen und Connection an richtigen index setzen
+					for (int i = 0; i < myGate.getInputAmount(); i++) {
+						if (this == myGate.getInput(i)) {
+							myGate.linkInput(i, out.getGate().getOutputConnection());
+						}
+					}
+
+				} else if (out.getGate() != null && myLamp != null) {
+					System.out.println("connected");
+					out.getGate().getOutputConnection().setInputConnection(myLamp);
+					myLamp.setConnection(out.getGate().getOutputConnection());
+				}
+				// der paintAufruf fehlt noch
+				out.setDraw(false);
+			}
 		}
 
-		// }*/
+		if (severConnection) {
+			if (myLamp != null && myLamp.getConnection() != null) {
+				myLamp.getConnection().severInput();
+				myLamp.setConnection(null);
+				System.out.println("connection cut");
+			} else if (myGate != null) {
+				for (int i = 0; i < myGate.getInputAmount(); i++) {
+					if (this == myGate.getInput(i)) {
+						if (myGate.getInputConnection(i) != null) {
+							myGate.getInputConnection(i).severInput();
+							myGate.linkInput(i, null);
+							System.out.println("connection cut");
+						}
+					}
+				}
+			}
+		}
+
+//		// if(e.getSource() == this)
+//		System.out.println("gedrückt");
+//		// for(int i = 0;i < length;i++) {
+//		if (draw) {
+//
+//			draw = false;
+//			// System.out.println(draw);
+//			// eventx = getInputPosX();
+//			// eventy = getInputPosY();
+//			// repaint();
+//		} else {
+//
+//			draw = true;
+//			// System.out.println(draw);
+//			// System.out.println("gedrückt");
+//		}
+//
+//		// }*/
 	}
 	// void drawLines(Graphics g) {
 

@@ -7,9 +7,11 @@ public class NotGate extends Gate {
 
 	public NotGate() {
 		setInputs(1);
-		// output = new ComponentOutput();
-		// output.setBounds(79, 40, 20, 20);
-		// add(output);
+		output = new ComponentOutput();
+		output.setBounds(79, 40, 20, 20);
+		add(output);
+		input[0].setGate(this);
+		inputConnection = new Connection[input.length];
 	}
 
 	public boolean gateOP() {
@@ -20,10 +22,11 @@ public class NotGate extends Gate {
 	}
 
 	public boolean gateOPv2() {
-		if (inputConnection[0].getValue() == true)
+		if (inputConnection[0].getValue() == true) {
 			return false;
-		else
-			return true;
+		}
+
+		return true;
 	}
 
 	public void setValue(boolean val) {

@@ -8,11 +8,13 @@ import javax.swing.JFrame;
 public class Lamp extends Component {
 
 	public Lamp() {
-		//super();
+		// super();
 		input = new ComponentInput[1];
 		input[0] = new ComponentInput();
 		input[0].setBounds(0, 40, 20, 20);
 		add(input[0]);
+		input[0].setLamp(this);
+		inputConnection = new Connection[input.length];
 	}
 
 	public void paint(Graphics g) {
@@ -22,8 +24,8 @@ public class Lamp extends Component {
 		g.drawString("Lamp", 33, 53);
 		g.drawRect(getPositionX(), getPositionY(), getWidth() - 1, getHeigth() - 1);
 		g.drawOval(getPositionX(), getPositionY(), getWidth(), getHeigth());
-		
-		g.setColor(new Color(230,239,255));
+
+		g.setColor(new Color(230, 239, 255));
 		g.fillRect(0, 40, 19, 19);
 		g.setColor(Color.LIGHT_GRAY);
 		g.drawRect(0, 40, 19, 19);
@@ -41,6 +43,14 @@ public class Lamp extends Component {
 		return input[0].getValue();
 	}
 
+	public void setConnection(Connection c) {
+		inputConnection[0] = c;
+	}
+
+	public Connection getConnection() {
+		return inputConnection[0];
+	}
+
 	public static void main(String[] args) {
 		JFrame test = new JFrame("t");
 		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,6 +60,6 @@ public class Lamp extends Component {
 		Component t2 = new Component();
 		test.add(t);
 		test.add(t2);
-		//t.lampOn();
+		// t.lampOn();
 	}
 }

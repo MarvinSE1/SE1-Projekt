@@ -13,6 +13,10 @@ public class Gate extends Component {
 		output = new ComponentOutput();
 		output.setBounds(79, 40, 20, 20);
 		add(output);
+		// output initialisieren
+		output.insertOutput(); // in Vector aller outputs eintragen
+		output.setGate(this);
+		outputConnection = new Connection(this);
 	}
 
 	public void paint(Graphics g) {
@@ -128,6 +132,14 @@ public class Gate extends Component {
 		return output;
 	}
 
+	public Connection getOutputConnection() {
+		return outputConnection;
+	}
+
+	public ComponentInput getInput(int index) {
+		return input[index];
+	}
+
 	public int getInputAmount() {
 		if (input == null) {
 			return 0;
@@ -140,11 +152,19 @@ public class Gate extends Component {
 		inputConnection[index] = connection;
 	}
 
+	public Connection getInputConnection(int index) {
+		return inputConnection[index];
+	}
+
 	public void linkOutput(Connection connection) {
 		outputConnection = connection;
 	}
 
 	public boolean gateOP() {
+		return (Boolean) null;
+	}
+
+	public boolean gateOPv2() {
 		return (Boolean) null;
 	}
 

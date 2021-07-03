@@ -10,8 +10,12 @@ public class AndGate extends Gate {
 		output = new ComponentOutput();
 		output.setBounds(79, 40, 20, 20);
 		add(output);
+
+		for (ComponentInput in : input) {
+			in.setGate(this);
+		}
+
 		inputConnection = new Connection[input.length];
-		outputConnection = null;
 	}
 
 	public boolean gateOP() {
@@ -26,8 +30,6 @@ public class AndGate extends Gate {
 			if (inputConnection[i] == null) {
 				return false;
 			}
-
-			inputConnection[i].calculateValue();
 
 			if (inputConnection[i].getValue() == false) {
 				return false;

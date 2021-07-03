@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.util.Vector;
 
 import javax.swing.JButton;
 
@@ -14,11 +15,47 @@ public class ComponentOutput extends JButton implements ActionListener, MouseMot
 	private int posX;
 	private int posY;
 	private boolean value;
+	private static Vector<ComponentOutput> outputList = new Vector<ComponentOutput>(); // enthält alle outputs
+	private Gate myGate;
+	private Switch mySwitch;
+	private boolean isConnected;
 
 	public ComponentOutput() {
 		// output = new ComponentOutput();
 		addActionListener(this);
 		addMouseMotionListener(this);
+	}
+
+	public void insertOutput() {
+		outputList.add(this);
+	}
+
+	public Vector<ComponentOutput> getList() {
+		return outputList;
+	}
+
+	public boolean getDraw() {
+		return draw;
+	}
+
+	public void setDraw(boolean draw) {
+		this.draw = draw;
+	}
+
+	public void setGate(Gate g) {
+		myGate = g;
+	}
+
+	public Gate getGate() {
+		return myGate;
+	}
+
+	public void setSwitch(Switch s) {
+		mySwitch = s;
+	}
+
+	public Switch getSwitch() {
+		return mySwitch;
 	}
 
 	public boolean getValue() {
@@ -42,13 +79,27 @@ public class ComponentOutput extends JButton implements ActionListener, MouseMot
 		value = newValue;
 	}
 
+	public void disconnect() {
+		isConnected = false;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == this) {
 			System.out.println("gedrückt");
-			draw = true;
-		}
 
+			if (!isConnected) {
+
+				// alle draws werden zurückgesetzt
+				for (ComponentOutput out : outputList) {
+					out.setDraw(false);
+				}
+
+				// draw vom jetzigen output auf true (darf nur eines geben)
+				draw = true;
+				isConnected = true;
+			}
+		}
 	}
 
 	@Override
