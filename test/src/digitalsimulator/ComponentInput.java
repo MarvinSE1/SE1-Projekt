@@ -13,6 +13,7 @@ public class ComponentInput extends JButton implements ActionListener {
 	private boolean draw = false;
 	private int posX;
 	private int posY;
+	private ComponentInput[] input;
 
 	// alle Komponenten, die Input haben
 	private Gate myGate;
@@ -82,6 +83,10 @@ public class ComponentInput extends JButton implements ActionListener {
 		return draw;
 	}
 
+	public void setInput(ComponentInput[] input) {
+		this.input = input;
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		boolean severConnection = true;
@@ -101,8 +106,8 @@ public class ComponentInput extends JButton implements ActionListener {
 					out.getGate().getOutputConnection().setInputConnection(myGate);
 
 					// alle inputs durchgehen und Connection an richtigen index setzen
-					for (int i = 0; i < myGate.getInputAmount(); i++) {
-						if (this == myGate.getInput(i)) {
+					for (int i = 0; i < input.length; i++) {
+						if (this == input[i]) {
 							myGate.linkInput(i, out.getGate().getOutputConnection());
 						}
 					}

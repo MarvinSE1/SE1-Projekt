@@ -93,6 +93,7 @@ public class Gate extends Component implements MouseListener {
 
 				input[i].setGate(this);
 				add(input[i]);
+				input[i].setInput(input);
 
 //				input[i].setInputArray(input);
 			}
@@ -166,6 +167,10 @@ public class Gate extends Component implements MouseListener {
 
 	public ComponentInput getInput(int index) {
 		return input[index];
+	}
+
+	public ComponentInput[] getInput() {
+		return input;
 	}
 
 	public int getInputAmount() {
