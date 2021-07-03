@@ -38,6 +38,7 @@ public class Canvas extends JTabbedPane {
 
 		JOptionPane popUp = new JOptionPane("");
 		String name = popUp.showInputDialog("Name des Canvas: ");
+		
 		if(name.equals(""))
 			name = "Canvas";
 
