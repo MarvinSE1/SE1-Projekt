@@ -20,7 +20,6 @@ public class Canvas extends JTabbedPane {
 	private JPanel panel;
 	private ComponentInput input;
 
-
 	// private AbstracPanel[] panel = new AbstracPanel[size];
 
 	public Canvas() {
@@ -35,16 +34,19 @@ public class Canvas extends JTabbedPane {
 	}
 
 	void addElement() {
+		try {
+			JOptionPane popUp = new JOptionPane("");
+			String name = popUp.showInputDialog("Name des Canvas: ");
 
-		JOptionPane popUp = new JOptionPane("");
-		String name = popUp.showInputDialog("Name des Canvas: ");
-		
-		if(name.equals(""))
-			name = "Canvas";
+			if (name.equals(""))
+				name = "Canvas";
 
-		panel = new JPanel();
-		panel.setLayout(null);
-		this.addTab((name), panel);
+			panel = new JPanel();
+			panel.setLayout(null);
+			this.addTab((name), panel);
+		} catch (NullPointerException e) {
+
+		}
 	}
 
 	void deleteCurrentCanvas() {

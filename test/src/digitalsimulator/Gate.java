@@ -204,7 +204,7 @@ public class Gate extends Component implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		if (SwingUtilities.isRightMouseButton(e) && e.getClickCount() == 1) {
 			pm = new JPopupMenu();
-			
+
 			JMenuItem item = new JMenuItem("Input Größe ändern");
 			JMenuItem item2 = new JMenuItem("löschen");
 			add(pm);
@@ -215,12 +215,16 @@ public class Gate extends Component implements MouseListener {
 			item.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					JOptionPane input = new JOptionPane();
-					String inputValue = input.showInputDialog("Bitte Anzahl der Inputs eingeben: ");
-					int a = Integer.parseInt(inputValue);
-					if (a >= 2)
-						setInputs(a);
-					setPosition(getGate().getPositionX(), getGate().getPositionY(), getGate());
+					try {
+						JOptionPane input = new JOptionPane();
+						String inputValue = input.showInputDialog("Bitte Anzahl der Inputs eingeben: ");
+						int a = Integer.parseInt(inputValue);
+						if (a >= 2)
+							setInputs(a);
+						setPosition(getGate().getPositionX(), getGate().getPositionY(), getGate());
+					} catch (Exception exception) {
+
+					}
 				}
 
 			});
