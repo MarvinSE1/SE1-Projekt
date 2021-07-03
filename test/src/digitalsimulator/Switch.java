@@ -10,9 +10,12 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+
+import runProgramm.runSim;
 
 public class Switch extends Gate implements ActionListener {
 
@@ -20,8 +23,10 @@ public class Switch extends Gate implements ActionListener {
 	private JPopupMenu pm;
 	private JMenuItem mi;
 	private JTextField tf;
+	private JPanel panel;
 
 	public Switch() {
+		panel = runSim.getMainWindow().getCanvas().getPanel();
 		output = new ComponentOutput();
 		switchButton = new JButton();
 		switchButton.setBounds(30, 30, 40, 40);
@@ -99,7 +104,8 @@ public class Switch extends Gate implements ActionListener {
 			item.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					
+					panel.remove(getGate());
+					panel.repaint();
 				}
 
 			});

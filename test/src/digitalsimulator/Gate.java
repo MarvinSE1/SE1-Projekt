@@ -9,9 +9,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JComponent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
@@ -28,12 +30,11 @@ public class Gate extends Component implements MouseListener {
 	private JTextField tf;
 //	private int posX;
 //	private int posY;
-	private Canvas canvas;
-	private MainWindowGUI guiMainWindow;
+	private JPanel panel;
+
 
 	public Gate() {
-		guiMainWindow = runSim.getMainWindow();
-		canvas = guiMainWindow.getCanvas();
+		panel = runSim.getMainWindow().getCanvas().getPanel();
 		output = new ComponentOutput();
 		output.setBounds(79, 40, 20, 20);
 		add(output);
@@ -228,7 +229,8 @@ public class Gate extends Component implements MouseListener {
 			item2.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					canvas.remove(getGate());
+					panel.remove(getGate());
+					panel.repaint();
 				}
 
 				

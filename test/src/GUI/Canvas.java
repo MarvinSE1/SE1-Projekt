@@ -53,6 +53,9 @@ public class Canvas extends JTabbedPane {
 	public void addComponent(Component c){
 		getPanel().add(c);
 	}
+	public void removeComponent(Component c) {
+		getPanel().remove(c);
+	}
 //	
 //	public AbstracPanel[] getPanelArray() {
 //		return panel;

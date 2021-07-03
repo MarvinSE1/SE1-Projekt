@@ -8,18 +8,23 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+
+import runProgramm.runSim;
 
 public class Lamp extends Gate {
 	
 	private JPopupMenu pm;
 	private JMenuItem mi;
 	private JTextField tf;
+	private JPanel panel;
 
 	public Lamp() {
-		// super();
+		panel = runSim.getMainWindow().getCanvas().getPanel();
+		remove(output);
 		input = new ComponentInput[1];
 		input[0] = new ComponentInput();
 		input[0].setBounds(0, 40, 20, 20);
@@ -67,18 +72,19 @@ public class Lamp extends Gate {
 			pm = new JPopupMenu();
 			mi = new JMenuItem();
 			
-			JMenuItem item = new JMenuItem("löschen");
+			JMenuItem item2 = new JMenuItem("löschen");
 			add(pm);
 			
-			pm.add(item);
+			pm.add(item2);
 			//item.setVisible(true);
 			pm.setVisible(true);
 			pm.show(this,e.getX(),e.getY());
 			
-			item.addActionListener(new ActionListener() {
+			item2.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					
+					panel.remove(getGate());
+					panel.repaint();
 				}
 
 			});

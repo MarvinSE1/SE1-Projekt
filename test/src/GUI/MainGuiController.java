@@ -13,6 +13,7 @@ import java.awt.event.WindowListener;
 import javax.swing.*;
 
 import digitalsimulator.AndGate;
+import digitalsimulator.Component;
 import digitalsimulator.Lamp;
 import digitalsimulator.NotGate;
 import digitalsimulator.OrGate;
@@ -177,9 +178,7 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (SwingUtilities.isRightMouseButton(e) && e.getClickCount() == 1 ) {
-			if( canvas.getSelectedComponent() == new Lamp())
-				System.out.println("heso");
+		if (SwingUtilities.isRightMouseButton(e) && e.getClickCount() == 1) {
 			System.out.println("Rechtsklick");
 		}
 		

@@ -9,7 +9,12 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+
+import GUI.Canvas;
+import GUI.MainWindowGUI;
+import runProgramm.runSim;
 
 public class Component extends JComponent {
 
@@ -22,9 +27,10 @@ public class Component extends JComponent {
 	protected Connection[] inputConnection;
 	protected Connection outputConnection;
 	private boolean draw = false;
-
+	
+	
 	public Component() {
-
+	
 		// setLayout(null);
 		this.setBackground(Color.GRAY);
 		this.setBounds(posX, posY, sizeX, sizeY);
@@ -178,6 +184,7 @@ public class Component extends JComponent {
 		test.add(t5);
 		test.add(t6);
 		t.setPosition(100, 100, t);
+		
 		
 	}
 }

@@ -8,17 +8,22 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
+
+import runProgramm.runSim;
 
 public class NotGate extends Gate {
 	
 	private JPopupMenu pm;
 	private JMenuItem mi;
 	private JTextField tf;
+	private JPanel panel;
 
 	public NotGate() {
+		panel = runSim.getMainWindow().getCanvas().getPanel();
 		setInputs(1);
 		output = new ComponentOutput();
 		output.setBounds(79, 40, 20, 20);
@@ -69,7 +74,8 @@ public class NotGate extends Gate {
 			item.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					
+					panel.remove(getGate());
+					panel.repaint();
 				}
 
 			});
