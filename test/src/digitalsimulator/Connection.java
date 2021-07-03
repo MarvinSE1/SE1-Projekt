@@ -7,12 +7,15 @@ import javax.swing.JFrame;
 public class Connection {
 
 	boolean value;
+
+	// je ein Attribut pro input / output möglichkeit
 	Switch connectionInputv1;
 	Gate connectionInputv2;
 
 	Lamp connectionOutputv1;
 	Gate connectionOutputv2;
 
+	// im kosntruktor immer output übergeben
 	public Connection(Switch switchOutput) {
 		connectionInputv1 = switchOutput;
 		switchOutput.linkOutput(this);
@@ -23,6 +26,7 @@ public class Connection {
 		gateOutput.linkOutput(this);
 	}
 
+	// ebenfalls für jede mögliche kombination
 	public void paint(Graphics g) {
 		if (connectionInputv1 != null && connectionOutputv1 != null) {
 			g.drawLine(connectionInputv1.getX(), connectionInputv1.getY(), connectionOutputv1.getX(),
@@ -39,6 +43,9 @@ public class Connection {
 		}
 	}
 
+	// läuft solange, wie ende (lampe) nicht erreicht
+	// Fehler, wenn letzter output nicht erreicht
+	// kann man fixen, sollte aber sowiso nicht
 	public void calculateValue() {
 		if (connectionInputv1 != null) {
 			value = connectionInputv1.getValueSwitch();
@@ -58,6 +65,7 @@ public class Connection {
 		}
 	}
 
+	// für jede Art von inputKomponente
 	public void setInputConnection(Gate g) {
 		connectionOutputv2 = g;
 
@@ -78,10 +86,13 @@ public class Connection {
 		}
 	}
 
+	// trennt verbindung zwischen 2 Komponenten
+	// besser gesagt, inputVerbidung wird
 	public void severInput() {
 		connectionOutputv1 = null;
 		connectionOutputv2 = null;
 
+		// disconnect sorgt dafür, dass der output neu verbunden werden kann
 		if (connectionInputv1 != null) {
 			connectionInputv1.getOutput().disconnect();
 		} else if (connectionInputv2 != null) {

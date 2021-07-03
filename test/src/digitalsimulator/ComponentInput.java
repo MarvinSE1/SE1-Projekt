@@ -13,6 +13,8 @@ public class ComponentInput extends JButton implements ActionListener {
 	private boolean draw = false;
 	private int posX;
 	private int posY;
+
+	// alle Komponenten, die Input haben
 	private Gate myGate;
 	private Lamp myLamp;
 
@@ -83,13 +85,17 @@ public class ComponentInput extends JButton implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		boolean severConnection = true;
+
 		// Vector aller outputs holen
 		for (ComponentOutput out : new ComponentOutput().getList()) {
 
 			// verbindung zum markierten output herstellen
 			if (out.getDraw()) {
+
+				// sobald ein draw = true, verbinden
 				severConnection = false;
 
+				// für jede mögliche kombination von input - output
 				if (out.getSwitch() != null && myLamp != null) {
 					System.out.println("connected");
 					out.getSwitch().getOutputConnection().setInputConnection(myLamp);
@@ -121,17 +127,20 @@ public class ComponentInput extends JButton implements ActionListener {
 					out.getGate().getOutputConnection().setInputConnection(myLamp);
 					myLamp.setConnection(out.getGate().getOutputConnection());
 				}
-				// der paintAufruf fehlt noch
+
+				// draw zurücksetzen
 				out.setDraw(false);
 			}
 		}
 
 		if (severConnection) {
 			if (myLamp != null && myLamp.getConnection() != null) {
-				myLamp.getConnection().severInput();
-				myLamp.setConnection(null);
+				myLamp.getConnection().severInput(); // input erst in der Connection,
+				myLamp.setConnection(null); // dann in der Komponente löschen
 				System.out.println("connection cut");
 			} else if (myGate != null) {
+
+				// schleife, um richtigen input zu finden (gibt bei And und Or mehrere)
 				for (int i = 0; i < myGate.getInputAmount(); i++) {
 					if (this == myGate.getInput(i)) {
 						if (myGate.getInputConnection(i) != null) {

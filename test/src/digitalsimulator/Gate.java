@@ -72,6 +72,7 @@ public class Gate extends Component {
 					// input[i].setInputPos(0,i*abstand +abstand/2);
 				}
 				add(input[i]);
+
 //				input[i].setInputArray(input);
 			}
 			// setInputArray(input);

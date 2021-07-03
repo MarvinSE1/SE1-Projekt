@@ -12,13 +12,17 @@ import javax.swing.JButton;
 public class ComponentOutput extends JButton implements ActionListener, MouseMotionListener {
 	private ComponentOutput output;
 	private boolean draw = false;
+	private boolean isConnected = false;
 	private int posX;
 	private int posY;
 	private boolean value;
-	private static Vector<ComponentOutput> outputList = new Vector<ComponentOutput>(); // enthält alle outputs
+
+	// Vector für alle outputs, um alle draw-Werte prüfen tu können
+	private static Vector<ComponentOutput> outputList = new Vector<ComponentOutput>();
+
+	// alle Komponenten, die Output haben
 	private Gate myGate;
 	private Switch mySwitch;
-	private boolean isConnected;
 
 	public ComponentOutput() {
 		// output = new ComponentOutput();
@@ -88,14 +92,16 @@ public class ComponentOutput extends JButton implements ActionListener, MouseMot
 		if (e.getSource() == this) {
 			System.out.println("gedrückt");
 
+			// nur wenn nicht schon verbunden, müsste erst getrennt werden
 			if (!isConnected) {
 
-				// alle draws werden zurückgesetzt
+				// alle draw-werte auf false setzen
 				for (ComponentOutput out : outputList) {
 					out.setDraw(false);
 				}
 
-				// draw vom jetzigen output auf true (darf nur eines geben)
+				// gleichzeitig darf immer nur eine ComponentOutputzum
+				// verbinden markiert sein
 				draw = true;
 				isConnected = true;
 			}
