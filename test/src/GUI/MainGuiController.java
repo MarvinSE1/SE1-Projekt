@@ -10,17 +10,18 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.SwingUtilities;
 
 import digitalsimulator.AndGate;
-import digitalsimulator.Component;
 import digitalsimulator.Lamp;
 import digitalsimulator.NotGate;
 import digitalsimulator.OrGate;
 import digitalsimulator.Switch;
 import runProgramm.runSim;
 
-public class MainGuiController implements ActionListener, KeyListener, WindowListener, MouseMotionListener, MouseListener {
+public class MainGuiController
+		implements ActionListener, KeyListener, WindowListener, MouseMotionListener, MouseListener {
 
 	private static MainWindowGUI guiMainWindow;
 	private ComponentCategories categoryPanel;
@@ -31,7 +32,7 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 	private Lamp a;
 
 	public MainGuiController(MainWindowGUI mainWindow) {
-		
+
 		this.guiMainWindow = runSim.getMainWindow();
 		this.topMenuPanel = guiMainWindow.getTopPanel();
 		this.categoryPanel = guiMainWindow.getComponentCategories();
@@ -47,13 +48,13 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 		this.and = DragDrop.getGate().getAndGate();
 		this.not = DragDrop.getGate().getNotGate();
 
-		
 		// TopMenuPanel ActionListeners
-			
+
 		this.guiMainWindow.getTopPanel().getNewButton().addActionListener(e -> canvas.addElement());
-		
+		this.guiMainWindow.getTopPanel().getDeleteButton().addActionListener(e -> canvas.deleteCurrentCanvas());
+
 		// ComponentCategories ActionListeners
-		
+
 		this.categoryPanel.getGateButton().addActionListener(e -> DragDrop.setGatePanelActive());
 		this.categoryPanel.getInputButton().addActionListener(e -> DragDrop.setInputPanelActive());
 		this.categoryPanel.getOutputButton().addActionListener(e -> DragDrop.setOutputPanelActive());
@@ -73,8 +74,8 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 		this.canvas.addMouseListener(this);
 //		this.DragDrop.addMouseMotionListener(this);
 
-	}	
-	
+	}
+
 	@Override
 	public void windowActivated(WindowEvent arg0) {
 		// TODO Auto-generated method stub
@@ -143,33 +144,32 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
-		
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == lever) {
+		if (e.getSource() == lever) {
 			Switch a = new Switch();
 			canvas.addComponent(a);
 			a.setPosition(1, 1, a);
 		}
-		if(e.getSource() == or) {
+		if (e.getSource() == or) {
 			OrGate a = new OrGate();
 			canvas.addComponent(a);
 			a.setPosition(1, 1, a);
 		}
-		if(e.getSource() == and) {
+		if (e.getSource() == and) {
 			AndGate a = new AndGate();
 			canvas.addComponent(a);
 			a.setPosition(1, 1, a);
 		}
-		if(e.getSource() == not) {
+		if (e.getSource() == not) {
 			NotGate a = new NotGate();
 			canvas.addComponent(a);
 			a.setPosition(1, 1, a);
 		}
-		if(e.getSource() == lamp) {
+		if (e.getSource() == lamp) {
 			this.a = new Lamp();
 			canvas.addComponent(a);
 			a.setPosition(1, 1, a);
@@ -181,31 +181,31 @@ public class MainGuiController implements ActionListener, KeyListener, WindowLis
 		if (SwingUtilities.isRightMouseButton(e) && e.getClickCount() == 1) {
 			System.out.println("Rechtsklick");
 		}
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
