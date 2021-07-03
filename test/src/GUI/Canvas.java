@@ -17,7 +17,6 @@ import digitalsimulator.ComponentInput;
 public class Canvas extends JTabbedPane {
 
 	private JButton plus;
-	private int newTabCounter;
 	private JPanel panel;
 	private ComponentInput input;
 
@@ -26,7 +25,6 @@ public class Canvas extends JTabbedPane {
 	public Canvas() {
 		// addPanel();
 		// panel = new JPanel();
-		newTabCounter = 1;
 		this.setPreferredSize(new Dimension(1800, 700));
 		this.setBorder(new LineBorder(Color.CYAN, 4));
 		this.plus = new JButton("+");
@@ -36,11 +34,13 @@ public class Canvas extends JTabbedPane {
 	}
 
 	void addElement() {
+
+		JOptionPane popUp = new JOptionPane();
+		String name = popUp.showInputDialog("Name des Canvas: ");
+
 		panel = new JPanel();
-		// addPanel();
 		panel.setLayout(null);
-		this.addTab(("Canvas" + newTabCounter), panel);
-		newTabCounter++;
+		this.addTab((name), panel);
 	}
 
 	void deleteCurrentCanvas() {
@@ -64,19 +64,6 @@ public class Canvas extends JTabbedPane {
 		getPanel().remove(c);
 	}
 
-//	
-//	public AbstracPanel[] getPanelArray() {
-//		return panel;
-//	}
-//		
-//	public void addPanel() {
-//		size++;
-//		AbstracPanel[] newPanel = new AbstracPanel[size];
-//		for(int i = 0; i < panel.length;i++) {
-//			newPanel[i] = panel[i];
-//		}
-//		panel = newPanel;
-//	}
 	public void setMousePositionX() {
 
 	}

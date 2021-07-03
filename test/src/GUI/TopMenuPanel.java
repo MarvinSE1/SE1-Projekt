@@ -21,9 +21,9 @@ public class TopMenuPanel extends JPanel {
 		setLayout(new FlowLayout(FlowLayout.LEADING));
 		this.setBorder(new LineBorder(new Color(0x353535)));
 
-		this.newCanvasPanel = new JButton("New Circuit Panel");
+		this.newCanvasPanel = new JButton("New Canvas");
 		this.save = new JButton("Save");
-		this.deleteCanvas = new JButton("Delete Circuit Panel");
+		this.deleteCanvas = new JButton("Delete Canvas");
 		this.runSimulation = new JButton("Run Simulation");
 
 		add(newCanvasPanel);
