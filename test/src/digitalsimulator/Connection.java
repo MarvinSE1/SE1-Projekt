@@ -91,13 +91,6 @@ public class Connection {
 	public void severInput() {
 		connectionOutputv1 = null;
 		connectionOutputv2 = null;
-
-		// disconnect sorgt dafür, dass der output neu verbunden werden kann
-		if (connectionInputv1 != null) {
-			connectionInputv1.getOutput().disconnect();
-		} else if (connectionInputv2 != null) {
-			connectionInputv2.getOutput().disconnect();
-		}
 	}
 
 	public boolean getValue() {

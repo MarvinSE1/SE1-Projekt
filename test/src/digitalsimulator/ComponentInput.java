@@ -96,22 +96,7 @@ public class ComponentInput extends JButton implements ActionListener {
 				severConnection = false;
 
 				// für jede mögliche kombination von input - output
-				if (out.getSwitch() != null && myLamp != null) {
-					System.out.println("connected");
-					out.getSwitch().getOutputConnection().setInputConnection(myLamp);
-					myLamp.setConnection(out.getSwitch().getOutputConnection());
-				} else if (out.getSwitch() != null && myGate != null) {
-					System.out.println("connected");
-					out.getSwitch().getOutputConnection().setInputConnection(myGate);
-
-					// alle inputs durchgehen und Connection an richtigen index setzen
-					for (int i = 0; i < myGate.getInputAmount(); i++) {
-						if (this == myGate.getInput(i)) {
-							myGate.linkInput(i, out.getSwitch().getOutputConnection());
-						}
-					}
-
-				} else if (out.getGate() != null && myGate != null) {
+				if (out.getGate() != null && myGate != null) {
 					System.out.println("connected");
 					out.getGate().getOutputConnection().setInputConnection(myGate);
 

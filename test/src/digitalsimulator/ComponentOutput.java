@@ -12,7 +12,6 @@ import javax.swing.JButton;
 public class ComponentOutput extends JButton implements ActionListener, MouseMotionListener {
 	private ComponentOutput output;
 	private boolean draw = false;
-	private boolean isConnected = false;
 	private int posX;
 	private int posY;
 	private boolean value;
@@ -83,28 +82,19 @@ public class ComponentOutput extends JButton implements ActionListener, MouseMot
 		value = newValue;
 	}
 
-	public void disconnect() {
-		isConnected = false;
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == this) {
 			System.out.println("gedrückt");
 
-			// nur wenn nicht schon verbunden, müsste erst getrennt werden
-			if (!isConnected) {
-
-				// alle draw-werte auf false setzen
-				for (ComponentOutput out : outputList) {
-					out.setDraw(false);
-				}
-
-				// gleichzeitig darf immer nur eine ComponentOutputzum
-				// verbinden markiert sein
-				draw = true;
-				isConnected = true;
+			// alle draw-werte auf false setzen
+			for (ComponentOutput out : outputList) {
+				out.setDraw(false);
 			}
+
+			// gleichzeitig darf immer nur eine ComponentOutputzum
+			// verbinden markiert sein
+			draw = true;
 		}
 	}
 

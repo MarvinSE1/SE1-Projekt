@@ -1,16 +1,12 @@
 package digitalsimulator;
 
-
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.MenuItem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JComponent;
-import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -18,9 +14,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import GUI.MainWindowGUI;
 import runProgramm.runSim;
-import GUI.Canvas;
 
 public class Gate extends Component implements MouseListener {
 
@@ -31,7 +25,6 @@ public class Gate extends Component implements MouseListener {
 //	private int posX;
 //	private int posY;
 	private JPanel panel;
-
 
 	public Gate() {
 		panel = runSim.getMainWindow().getCanvas().getPanel();
@@ -97,10 +90,14 @@ public class Gate extends Component implements MouseListener {
 					input[i].setBounds(0, i * abstand + abstand / 2, 20, 20);
 					// input[i].setInputPos(0,i*abstand +abstand/2);
 				}
+
+				input[i].setGate(this);
 				add(input[i]);
 
 //				input[i].setInputArray(input);
 			}
+
+			inputConnection = new Connection[amount];
 			// setInputArray(input);
 
 		}
@@ -136,7 +133,7 @@ public class Gate extends Component implements MouseListener {
 				// input[i].getDraw();
 
 				System.out.println(input[i].getDraw());
-				//this.setDraw(input[i].getDraw());
+				// this.setDraw(input[i].getDraw());
 				if (amount == 1) {
 					input[i].setBounds(0, 40, 20, 20);
 					// input[i].setInputPos(0,40);
@@ -144,8 +141,12 @@ public class Gate extends Component implements MouseListener {
 					input[i].setBounds(0, i * abstand + 20, 20, 20);
 					// input[i].setInputPos(0,i*abstand + 20);
 				}
+
+				input[i].setGate(this);
 				add(input[i]);
 			}
+
+			inputConnection = new Connection[amount];
 			// setInputArray(input);
 		}
 
@@ -205,26 +206,25 @@ public class Gate extends Component implements MouseListener {
 			add(pm);
 			pm.add(item);
 			pm.add(item2);
-			//item.setVisible(true);
+			// item.setVisible(true);
 			pm.setVisible(true);
-			pm.show(this,e.getX(),e.getY());
-			//int a = Integer.parseInt(tf.getText());
-			//changeNumberOfInputs(a);
+			pm.show(this, e.getX(), e.getY());
+			// int a = Integer.parseInt(tf.getText());
+			// changeNumberOfInputs(a);
 			item.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					System.out.println("sad");
 					JOptionPane input = new JOptionPane();
 					tf = new JTextField();
-					input.showMessageDialog(null,tf);
-					//getGate().add(input);
+					input.showMessageDialog(null, tf);
+					// getGate().add(input);
 					int a = Integer.parseInt(tf.getText());
-					if(a >= 2)
+					if (a >= 2)
 						setInputs(a);
-					setPosition(getGate().getPositionX(),getGate().getPositionY(),getGate());
+					setPosition(getGate().getPositionX(), getGate().getPositionY(), getGate());
 				}
 
-				
 			});
 			item2.addActionListener(new ActionListener() {
 				@Override
@@ -233,35 +233,34 @@ public class Gate extends Component implements MouseListener {
 					panel.repaint();
 				}
 
-				
 			});
-			
+
 		}
-		
+
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

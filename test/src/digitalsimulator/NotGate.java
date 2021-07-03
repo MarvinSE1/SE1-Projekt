@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
@@ -16,7 +15,7 @@ import javax.swing.SwingUtilities;
 import runProgramm.runSim;
 
 public class NotGate extends Gate {
-	
+
 	private JPopupMenu pm;
 	private JMenuItem mi;
 	private JTextField tf;
@@ -29,7 +28,6 @@ public class NotGate extends Gate {
 		output.setBounds(79, 40, 20, 20);
 		add(output);
 		input[0].setGate(this);
-		inputConnection = new Connection[input.length];
 	}
 
 	public boolean gateOP() {
@@ -62,15 +60,15 @@ public class NotGate extends Gate {
 		if (SwingUtilities.isRightMouseButton(e) && e.getClickCount() == 1) {
 			pm = new JPopupMenu();
 			mi = new JMenuItem();
-			
+
 			JMenuItem item = new JMenuItem("löschen");
 			add(pm);
-			
+
 			pm.add(item);
-			//item.setVisible(true);
+			// item.setVisible(true);
 			pm.setVisible(true);
-			pm.show(this,e.getX(),e.getY());
-			
+			pm.show(this, e.getX(), e.getY());
+
 			item.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -81,6 +79,6 @@ public class NotGate extends Gate {
 			});
 
 		}
-		
+
 	}
 }
