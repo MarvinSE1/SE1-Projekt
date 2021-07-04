@@ -51,6 +51,8 @@ public class MainGuiController
 		// TopMenuPanel ActionListeners
 
 		this.guiMainWindow.getTopPanel().getNewButton().addActionListener(e -> canvas.addElement());
+		this.guiMainWindow.getTopPanel().getLoadButton().addActionListener(e -> canvas.loadCanvas());
+		this.guiMainWindow.getTopPanel().getSaveButton().addActionListener(e -> canvas.exportCanvas());
 		this.guiMainWindow.getTopPanel().getDeleteButton().addActionListener(e -> canvas.deleteCurrentCanvas());
 
 		// ComponentCategories ActionListeners

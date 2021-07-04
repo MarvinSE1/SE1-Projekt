@@ -3,9 +3,14 @@ package GUI;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -20,15 +25,9 @@ public class Canvas extends JTabbedPane {
 	private JPanel panel;
 	private ComponentInput input;
 
-	// private AbstracPanel[] panel = new AbstracPanel[size];
-
 	public Canvas() {
-		// addPanel();
-		// panel = new JPanel();
 		this.setPreferredSize(new Dimension(1800, 700));
 		this.setBorder(new LineBorder(Color.CYAN, 4));
-		this.plus = new JButton("+");
-		// panel = new JPanel();
 		addElement();
 
 	}
@@ -46,6 +45,42 @@ public class Canvas extends JTabbedPane {
 			this.addTab((name), panel);
 		} catch (NullPointerException e) {
 
+		}
+	}
+
+	void exportCanvas() {
+
+		String name = this.getSelectedComponent().getName();
+		int response;
+		JFileChooser chooser = new JFileChooser(".");
+
+		chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+		response = chooser.showSaveDialog(null);
+
+		if (response == JFileChooser.APPROVE_OPTION) {
+			try {
+				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(name + ".txt"));
+				out.writeObject(this.getSelectedComponent());
+			} catch (Exception e) {
+				System.out.println("fail");
+			}
+		}
+	}
+
+	void loadCanvas() {
+		int response;
+		JFileChooser chooser = new JFileChooser(".");
+
+		chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+		response = chooser.showOpenDialog(null);
+
+		if (response == JFileChooser.APPROVE_OPTION) {
+			try {
+				ObjectInputStream in = new ObjectInputStream(new FileInputStream("null.txt"));
+				this.addTab(TOOL_TIP_TEXT_KEY, (JPanel) in.readObject());
+			} catch (Exception e) {
+				System.out.println("fail");
+			}
 		}
 	}
 
@@ -79,8 +114,6 @@ public class Canvas extends JTabbedPane {
 	}
 
 	void drawLines(Graphics g) {
-
-		// g.drawLine(getInputPosX(), getInputPosY(), eventx, eventy);
 
 	}
 

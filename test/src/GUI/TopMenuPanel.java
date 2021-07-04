@@ -11,9 +11,10 @@ import javax.swing.border.LineBorder;
 public class TopMenuPanel extends JPanel {
 
 	private JButton newCanvasPanel;
+	private JButton load;
 	private JButton save;
-	private JButton runSimulation;
 	private JButton deleteCanvas;
+	private JButton runSimulation;
 
 	public TopMenuPanel() {
 
@@ -22,11 +23,13 @@ public class TopMenuPanel extends JPanel {
 		this.setBorder(new LineBorder(new Color(0x353535)));
 
 		this.newCanvasPanel = new JButton("New Canvas");
+		this.load = new JButton("Load...");
 		this.save = new JButton("Save");
 		this.deleteCanvas = new JButton("Delete Canvas");
 		this.runSimulation = new JButton("Run Simulation");
 
 		add(newCanvasPanel);
+		add(load);
 		add(save);
 		add(deleteCanvas);
 		add(runSimulation);
@@ -37,15 +40,19 @@ public class TopMenuPanel extends JPanel {
 		return newCanvasPanel;
 	}
 
+	JButton getLoadButton() {
+		return load;
+	}
+
 	JButton getSaveButton() {
 		return save;
 	}
 
-	JButton getSimulationButton() {
-		return runSimulation;
-	}
-
 	JButton getDeleteButton() {
 		return deleteCanvas;
+	}
+
+	JButton getSimulationButton() {
+		return runSimulation;
 	}
 }
