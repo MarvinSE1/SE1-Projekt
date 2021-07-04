@@ -1,12 +1,18 @@
 package digitalsimulator;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import runProgramm.runSim;
 
 public class Connection {
 
 	boolean value;
+	private JPanel panel;
+	Color color;
 
 	// je ein Attribut pro input / output möglichkeit
 	Gate connectionInput;
@@ -16,17 +22,31 @@ public class Connection {
 
 	// im kosntruktor immer output übergeben
 	public Connection(Gate gateOutput) {
+		color = Color.black;
+		panel = runSim.getMainWindow().getCanvas().getPanel();
 		connectionInput = gateOutput;
 		gateOutput.linkOutput(this);
 	}
 
 	// ebenfalls für jede mögliche kombination
 	public void paint(Graphics g) {
+		g.setColor(color);
+
 		if (connectionInput != null && lampConnection != null) {
 			g.drawLine(connectionInput.getX(), connectionInput.getY(), lampConnection.getX(), lampConnection.getY());
 		} else if (connectionInput != null && gateConnection != null) {
 			g.drawLine(connectionInput.getX(), connectionInput.getY(), gateConnection.getX(), gateConnection.getY());
 		}
+	}
+
+	public void paintConnectionBlack() {
+		color = Color.black;
+		panel.repaint();
+	}
+
+	public void paintConnectionWhite() {
+		color = Color.white;
+		panel.repaint();
 	}
 
 	// läuft solange, wie ende (lampe) nicht erreicht

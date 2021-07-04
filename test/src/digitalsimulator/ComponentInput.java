@@ -112,12 +112,15 @@ public class ComponentInput extends JButton implements ActionListener {
 						}
 					}
 
+					out.getGate().getOutputConnection().paintConnectionBlack();
+
 				} else if (out.getGate() != null && myLamp != null) {
 					System.out.println("connected");
 
 					if (myLamp.getConnection() == null) {
 						out.getGate().getOutputConnection().setInputConnection(myLamp);
 						myLamp.setConnection(out.getGate().getOutputConnection());
+						out.getGate().getOutputConnection().paintConnectionBlack();
 					}
 				}
 
@@ -128,6 +131,7 @@ public class ComponentInput extends JButton implements ActionListener {
 
 		if (severConnection) {
 			if (myLamp != null && myLamp.getConnection() != null) {
+				myLamp.getConnection().paintConnectionWhite();
 				myLamp.getConnection().severInput(); // input erst in der Connection,
 				myLamp.setConnection(null); // dann in der Komponente löschen
 				System.out.println("connection cut");
@@ -137,6 +141,7 @@ public class ComponentInput extends JButton implements ActionListener {
 				for (int i = 0; i < myGate.getInputAmount(); i++) {
 					if (this == myGate.getInput(i)) {
 						if (myGate.getInputConnection(i) != null) {
+							myGate.getGate().getOutputConnection().paintConnectionWhite();
 							myGate.getInputConnection(i).severInput();
 							myGate.linkInput(i, null);
 							System.out.println("connection cut");
