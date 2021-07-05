@@ -101,7 +101,7 @@ public class ComponentInput extends JButton implements ActionListener {
 				severConnection = false;
 
 				// für jede mögliche kombination von input - output
-				if (myGate != null) {
+				if (myGate != null && out.getGate() != myGate) {
 					System.out.println("connected");
 					out.getGate().getOutputConnection().setInputConnection(myGate);
 
