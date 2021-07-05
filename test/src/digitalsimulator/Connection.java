@@ -1,7 +1,6 @@
 package digitalsimulator;
 
 import java.awt.Color;
-import java.awt.Graphics;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,7 +11,6 @@ public class Connection {
 
 	boolean value;
 	private JPanel panel;
-	Color color;
 
 	// je ein Attribut pro input / output möglichkeit
 	Gate connectionInput;
@@ -22,31 +20,39 @@ public class Connection {
 
 	// im kosntruktor immer output übergeben
 	public Connection(Gate gateOutput) {
-		color = Color.black;
 		panel = runSim.getMainWindow().getCanvas().getPanel();
 		connectionInput = gateOutput;
 		gateOutput.linkOutput(this);
 	}
 
-	// ebenfalls für jede mögliche kombination
-	public void paint(Graphics g) {
-		g.setColor(color);
+	public void paintConnectionBlack() {
+		panel.getGraphics().setColor(Color.black);
+		System.out.println(panel.getGraphics().getColor());
 
 		if (connectionInput != null && lampConnection != null) {
-			g.drawLine(connectionInput.getX(), connectionInput.getY(), lampConnection.getX(), lampConnection.getY());
+			panel.getGraphics().drawLine(connectionInput.getX() + connectionInput.getOutput().getX() + 10,
+					connectionInput.getY() + connectionInput.getOutput().getY() + 10, lampConnection.getX(),
+					lampConnection.getY());
 		} else if (connectionInput != null && gateConnection != null) {
-			g.drawLine(connectionInput.getX(), connectionInput.getY(), gateConnection.getX(), gateConnection.getY());
+			panel.getGraphics().drawLine(connectionInput.getX() + connectionInput.getOutput().getX() + 10,
+					connectionInput.getY() + connectionInput.getOutput().getY() + 10, gateConnection.getX(),
+					gateConnection.getY());
 		}
 	}
 
-	public void paintConnectionBlack() {
-		color = Color.black;
-		panel.repaint();
-	}
-
 	public void paintConnectionWhite() {
-		color = Color.white;
-		panel.repaint();
+		panel.getGraphics().setColor(Color.white);
+		System.out.println(panel.getGraphics().getColor());
+
+		if (connectionInput != null && lampConnection != null) {
+			panel.getGraphics().drawLine(connectionInput.getX() + connectionInput.getOutput().getX() + 10,
+					connectionInput.getY() + connectionInput.getOutput().getY() + 10, lampConnection.getX(),
+					lampConnection.getY());
+		} else if (connectionInput != null && gateConnection != null) {
+			panel.getGraphics().drawLine(connectionInput.getX() + connectionInput.getOutput().getX() + 10,
+					connectionInput.getY() + connectionInput.getOutput().getY() + 10, gateConnection.getX(),
+					gateConnection.getY());
+		}
 	}
 
 	// läuft solange, wie ende (lampe) nicht erreicht
