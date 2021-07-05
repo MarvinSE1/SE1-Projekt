@@ -101,7 +101,7 @@ public class ComponentInput extends JButton implements ActionListener {
 				severConnection = false;
 
 				// für jede mögliche kombination von input - output
-				if (out.getGate() != null && myGate != null) {
+				if (myGate != null) {
 					System.out.println("connected");
 					out.getGate().getOutputConnection().setInputConnection(myGate);
 
@@ -114,14 +114,11 @@ public class ComponentInput extends JButton implements ActionListener {
 
 					out.getGate().getOutputConnection().paintConnectionBlack();
 
-				} else if (out.getGate() != null && myLamp != null) {
+				} else if (myLamp != null && myLamp.getConnection() == null) { // letzteres verhindert doppelverbindung
 					System.out.println("connected");
-
-					if (myLamp.getConnection() == null) {
-						out.getGate().getOutputConnection().setInputConnection(myLamp);
-						myLamp.setConnection(out.getGate().getOutputConnection());
-						out.getGate().getOutputConnection().paintConnectionBlack();
-					}
+					out.getGate().getOutputConnection().setInputConnection(myLamp);
+					myLamp.setConnection(out.getGate().getOutputConnection());
+					out.getGate().getOutputConnection().paintConnectionBlack();
 				}
 
 				// draw zurücksetzen
@@ -131,10 +128,11 @@ public class ComponentInput extends JButton implements ActionListener {
 
 		if (severConnection) {
 			if (myLamp != null && myLamp.getConnection() != null) {
-				myLamp.getConnection().paintConnectionWhite();
-				myLamp.getConnection().severInput(); // input erst in der Connection,
-				myLamp.setConnection(null); // dann in der Komponente löschen
+				myLamp.getConnection().paintConnectionWhite(); // gemalte verbindung übermalen
+				myLamp.getConnection().severInput(); // input erst in der Connection löschen
+				myLamp.setConnection(null); // verweis in der Klasse löschen
 				System.out.println("connection cut");
+
 			} else if (myGate != null) {
 
 				// schleife, um richtigen input zu finden (gibt bei And und Or mehrere)

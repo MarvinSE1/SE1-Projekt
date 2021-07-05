@@ -31,13 +31,10 @@ public class NotGate extends Gate {
 	}
 
 	public boolean gateOP() {
-		if (input[0].getValue() == true)
+		if (inputConnection[0] == null) {
 			return false;
-		else
-			return true;
-	}
+		}
 
-	public boolean gateOPv2() {
 		if (inputConnection[0].getValue() == true) {
 			return false;
 		}

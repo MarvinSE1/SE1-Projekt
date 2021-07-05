@@ -13,13 +13,6 @@ public class OrGate extends Gate {
 	}
 
 	public boolean gateOP() {
-		for (int i = 0; i < input.length; i++)
-			if (input[i].getValue() == true)
-				return true;
-		return false;
-	}
-
-	public boolean gateOPv2() {
 		for (int i = 0; i < inputConnection.length; i++) {
 			if (inputConnection[i] == null) {
 				return false;
@@ -28,7 +21,6 @@ public class OrGate extends Gate {
 			if (inputConnection[i].getValue() == true) {
 				return true;
 			}
-
 		}
 
 		return false;

@@ -38,7 +38,7 @@ public class ConnectionTests {
 		switch1.turnSwitchOn();
 		switch2.turnSwitchOn();
 
-		assertTrue(and1.gateOPv2());
+		assertTrue(and1.gateOP());
 	}
 
 	@Test
@@ -65,8 +65,8 @@ public class ConnectionTests {
 		switch2.turnSwitchOn();
 		switch3.turnSwitchOn();
 
-		assertTrue(and1.gateOPv2());
-		assertTrue(and2.gateOPv2());
+		assertTrue(and1.gateOP());
+		assertTrue(and2.gateOP());
 	}
 
 }

@@ -13,7 +13,7 @@ public class TurnSwitchOnMethod {
 		Switch s = new Switch();
 		s.turnSwitchOn();
 		s.turnSwitchOn();
-		assertEquals(true, s.gateOPv2());
+		assertEquals(true, s.gateOP());
 	}
 
 	@Test
@@ -21,7 +21,7 @@ public class TurnSwitchOnMethod {
 		Switch s = new Switch();
 		s.turnSwitchOff();
 		s.turnSwitchOn();
-		assertEquals(true, s.gateOPv2());
+		assertEquals(true, s.gateOP());
 	}
 
 }

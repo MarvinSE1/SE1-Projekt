@@ -66,7 +66,7 @@ public class Switch extends Gate implements ActionListener {
 		outputConnection.calculateValue();
 	}
 
-	public boolean gateOPv2() {
+	public boolean gateOP() {
 		return output.getValue();
 	}
 

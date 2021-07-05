@@ -51,10 +51,9 @@ public class Connection {
 
 	// läuft solange, wie ende (lampe) nicht erreicht
 	// Fehler, wenn letzter output nicht erreicht
-	// kann man fixen, sollte aber sowiso nicht
 	public void calculateValue() {
 		if (connectionInput != null) {
-			value = connectionInput.gateOPv2();
+			value = connectionInput.gateOP();
 		}
 
 		if (lampConnection != null) {
@@ -64,7 +63,7 @@ public class Connection {
 				lampConnection.lampOff();
 			}
 		} else if (gateConnection != null) {
-			gateConnection.gateOPv2();
+			gateConnection.gateOP();
 			gateConnection.getOutputConnection().calculateValue();
 		}
 	}
@@ -74,7 +73,7 @@ public class Connection {
 		gateConnection = g;
 
 		if (connectionInput != null) {
-			value = connectionInput.gateOPv2();
+			value = connectionInput.gateOP();
 		}
 	}
 
@@ -82,12 +81,11 @@ public class Connection {
 		lampConnection = l;
 
 		if (connectionInput != null) {
-			value = connectionInput.gateOPv2();
+			value = connectionInput.gateOP();
 		}
 	}
 
-	// trennt verbindung zwischen 2 Komponenten
-	// besser gesagt, inputVerbidung wird
+	// inputKomponente wird gelöscht
 	public void severInput() {
 		lampConnection = null;
 		gateConnection = null;
