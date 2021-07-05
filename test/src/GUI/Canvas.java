@@ -28,8 +28,6 @@ public class Canvas extends JTabbedPane {
 	public Canvas() {
 		this.setPreferredSize(new Dimension(1800, 700));
 		this.setBorder(new LineBorder(Color.CYAN, 4));
-		addElement();
-
 	}
 
 	void addElement() {
@@ -53,21 +51,23 @@ public class Canvas extends JTabbedPane {
 		String name = this.getSelectedComponent().getName();
 		int response;
 		JFileChooser chooser = new JFileChooser(".");
+		try {
 
-		chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-		response = chooser.showSaveDialog(null);
+			chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+			response = chooser.showSaveDialog(null);
 
-		if (response == JFileChooser.APPROVE_OPTION) {
-			try {
+			if (response == JFileChooser.APPROVE_OPTION) {
+
 				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(name + ".txt"));
 				out.writeObject(this.getSelectedComponent());
-			} catch (Exception e) {
-				System.out.println("fail");
 			}
+		} catch (Exception e) {
+
 		}
 	}
 
 	void loadCanvas() {
+
 		int response;
 		JFileChooser chooser = new JFileChooser(".");
 
@@ -79,7 +79,6 @@ public class Canvas extends JTabbedPane {
 				ObjectInputStream in = new ObjectInputStream(new FileInputStream("null.txt"));
 				this.addTab(TOOL_TIP_TEXT_KEY, (JPanel) in.readObject());
 			} catch (Exception e) {
-				System.out.println("fail");
 			}
 		}
 	}

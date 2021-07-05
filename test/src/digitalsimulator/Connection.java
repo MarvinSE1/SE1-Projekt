@@ -2,7 +2,6 @@ package digitalsimulator;
 
 import java.awt.Color;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import runProgramm.runSim;
@@ -99,31 +98,6 @@ public class Connection {
 
 	public boolean getValue() {
 		return this.value;
-	}
-
-	public static void main(String[] args) {
-		JFrame test = new JFrame("t");
-		test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		test.setLocationRelativeTo(null);
-		test.setVisible(true);
-		test.setSize(500, 500);
-		Lamp l = new Lamp();
-		Switch s1 = new Switch();
-		Switch s2 = new Switch();
-		Switch s3 = new Switch();
-		NotGate g = new NotGate();
-		NotGate g2 = new NotGate();
-		OrGate g3 = new OrGate();
-		AndGate g4 = new AndGate();
-
-		test.add(s1);
-		test.add(s2);
-		test.add(s3);
-		test.add(l);
-		test.add(g);
-		test.add(g2);
-		test.add(g3);
-		test.add(g4);
 	}
 
 }
