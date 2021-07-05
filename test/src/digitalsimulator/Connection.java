@@ -1,12 +1,13 @@
 package digitalsimulator;
 
 import java.awt.Color;
+import java.io.Serializable;
 
 import javax.swing.JPanel;
 
 import runProgramm.runSim;
 
-public class Connection {
+public class Connection implements Serializable {
 
 	boolean value;
 	private JPanel panel;

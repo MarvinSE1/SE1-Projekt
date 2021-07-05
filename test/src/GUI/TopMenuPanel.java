@@ -26,7 +26,7 @@ public class TopMenuPanel extends JPanel {
 		this.load = new JButton("Load...");
 		this.save = new JButton("Save");
 		this.deleteCanvas = new JButton("Delete Canvas");
-		this.runSimulation = new JButton("Run Simulation");
+		this.runSimulation = new JButton("v");
 
 		add(newCanvasPanel);
 		add(load);

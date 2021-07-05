@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -19,8 +20,9 @@ import javax.swing.border.LineBorder;
 import digitalsimulator.Component;
 import digitalsimulator.ComponentInput;
 
-public class Canvas extends JTabbedPane {
+public class Canvas extends JTabbedPane implements Serializable {
 
+	//private static final long serialVersionUID = 12L;
 	private JButton plus;
 	private JPanel panel;
 	private ComponentInput input;
@@ -47,27 +49,23 @@ public class Canvas extends JTabbedPane {
 	}
 
 	void exportCanvas() {
-
-		String name = this.getSelectedComponent().getName();
 		int response;
 		JFileChooser chooser = new JFileChooser(".");
 		try {
-
 			chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 			response = chooser.showSaveDialog(null);
 
 			if (response == JFileChooser.APPROVE_OPTION) {
-
-				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(name + ".txt"));
+				String filename = chooser.getSelectedFile().getName();
+				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename + ".txt"));
 				out.writeObject(this.getSelectedComponent());
 			}
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 	}
 
 	void loadCanvas() {
-
 		int response;
 		JFileChooser chooser = new JFileChooser(".");
 
@@ -76,9 +74,11 @@ public class Canvas extends JTabbedPane {
 
 		if (response == JFileChooser.APPROVE_OPTION) {
 			try {
-				ObjectInputStream in = new ObjectInputStream(new FileInputStream("null.txt"));
-				this.addTab(TOOL_TIP_TEXT_KEY, (JPanel) in.readObject());
+				String filename = chooser.getSelectedFile().getName();
+				ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
+				this.addTab(filename.replace(".txt", ""), (JPanel) in.readObject());
 			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 	}

@@ -2,8 +2,9 @@ package digitalsimulator;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.Serializable;
 
-public class OrGate extends Gate {
+public class OrGate extends Gate implements Serializable{
 
 	public OrGate() {
 		setInputs(2);

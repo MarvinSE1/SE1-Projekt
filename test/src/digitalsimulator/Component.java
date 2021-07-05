@@ -6,6 +6,7 @@ import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.Serializable;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -16,7 +17,7 @@ import GUI.Canvas;
 import GUI.MainWindowGUI;
 import runProgramm.runSim;
 
-public class Component extends JComponent {
+public class Component extends JComponent implements Serializable{
 
 	private int posX = 0;
 	private int posY = 0;

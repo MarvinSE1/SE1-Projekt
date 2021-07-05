@@ -5,11 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
+import java.io.Serializable;
 import java.util.Vector;
 
 import javax.swing.JButton;
 
-public class ComponentOutput extends JButton implements ActionListener, MouseMotionListener {
+public class ComponentOutput extends JButton implements ActionListener, MouseMotionListener, Serializable {
 	private ComponentOutput output;
 	private boolean draw = false;
 	private int posX;

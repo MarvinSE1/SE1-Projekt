@@ -2,8 +2,9 @@ package digitalsimulator;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.io.Serializable;
 
-public class AndGate extends Gate {
+public class AndGate extends Gate implements Serializable{
 
 	public AndGate() {
 		setInputs(2);

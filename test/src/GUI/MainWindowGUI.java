@@ -4,10 +4,11 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.io.Serializable;
 
 import javax.swing.JFrame;
 
-public class MainWindowGUI extends JFrame {
+public class MainWindowGUI extends JFrame implements Serializable {
 
 	private MainWindowMenuBar mainWindow;
 	private TopMenuPanel topPanel;

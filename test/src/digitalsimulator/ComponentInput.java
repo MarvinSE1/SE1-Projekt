@@ -2,11 +2,12 @@ package digitalsimulator;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class ComponentInput extends JButton implements ActionListener {
+public class ComponentInput extends JButton implements ActionListener, Serializable{
 
 	private boolean isOnConnection = false;
 	private boolean value;
